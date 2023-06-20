@@ -1,0 +1,47 @@
+[workspace]
+members = [
+  "lib-dispatch",
+  "lib-log",
+  "flowy-net",
+  "flowy-core",
+  "dart-ffi",
+  "flowy-user",
+  "flowy-test",
+  "flowy-sqlite",
+  "flowy-folder2",
+  "flowy-notification",
+  "flowy-document2",
+  "flowy-error",
+  "flowy-database2",
+  "flowy-task",
+  "flowy-server",
+  "flowy-config",
+]
+
+[profile.dev]
+opt-level = 0
+#https://doc.rust-lang.org/rustc/codegen-options/index.html#debug-assertions
+#split-debuginfo = "unpacked"
+
+[profile.release]
+opt-level = 3
+## debuginfo — it makes ./target much bigger, which again harms caching. Depending on your preferred workflow,
+## you might consider disabling debuginfo unconditionally, this brings some benefits for local builds as well.
+#strip = "debuginfo"
+## For from-scratch builds, incremental adds an extra dependency-tracking overhead. It also significantly increases
+## the amount of IO and the size of ./target, which make caching less effective.
+incremental = false
+
+[patch.crates-io]
+collab = { git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "e9f7fc" }
+collab-folder = { git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "e9f7fc" }
+collab-document = { git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "e9f7fc" }
+collab-database = { git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "e9f7fc" }
+appflowy-integrate = { git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "e9f7fc" }
+
+#collab = { path = "../AppFlowy-Collab/collab" }
+#collab-folder = { path = "../AppFlowy-Collab/collab-folder" }
+#collab-database= { path = "../AppFlowy-Collab/collab-database" }
+#collab-document = { path = "../AppFlowy-Collab/collab-document" }
+#appflowy-integrate = { path = "../AppFlowy-Collab/appflowy-integrate" }
+
