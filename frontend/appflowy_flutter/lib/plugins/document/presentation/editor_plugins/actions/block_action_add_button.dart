@@ -1,8 +1,6 @@
 import 'package:appflowy/plugins/document/presentation/editor_plugins/actions/block_action_button.dart';
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flutter/material.dart';
-import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class BlockAddButton extends StatelessWidget {
   const BlockAddButton({
@@ -23,13 +21,11 @@ class BlockAddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlockActionButton(
       svgName: 'editor/add',
-      richMessage: TextSpan(
+      richMessage: const TextSpan(
         children: [
           TextSpan(
-            text: LocaleKeys.document_plugins_optionAction_click.tr(),
-          ),
-          TextSpan(
-            text: LocaleKeys.document_plugins_optionAction_addBelow.tr(),
+            // todo: l10n.
+            text: 'Click to add below',
           ),
         ],
       ),

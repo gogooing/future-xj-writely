@@ -1,21 +1,25 @@
 import 'package:appflowy/plugins/document/presentation/editor_plugins/base/insert_page_command.dart';
+import 'package:appflowy/workspace/application/view/view_ext.dart';
 import 'package:appflowy/workspace/application/view/view_service.dart';
+import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
+import 'package:appflowy_backend/protobuf/flowy-error/errors.pb.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder2/view.pb.dart';
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flowy_infra/image.dart';
 import 'package:flowy_infra_ui/style_widget/button.dart';
 import 'package:flowy_infra_ui/style_widget/text.dart';
+import 'package:flowy_infra_ui/widget/error_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 void showLinkToPageMenu(
-  OverlayState container,
-  EditorState editorState,
-  SelectionMenuService menuService,
-  ViewLayoutPB pageType,
-) {
+    OverlayState container,
+    EditorState editorState,
+    SelectionMenuService menuService,
+    ViewLayoutPB pageType,
+    ) {
   menuService.dismiss();
 
   final alignment = menuService.alignment;
@@ -36,9 +40,19 @@ void showLinkToPageMenu(
         editorState: editorState,
         layoutType: pageType,
         hintText: pageType.toHintText(),
-        onSelected: (appPB, viewPB) {
-          editorState.insertReferencePage(viewPB);
-          linkToPageMenuEntry.remove();
+        onSelected: (appPB, viewPB) async {
+          try {
+            await editorState.insertReferencePage(viewPB);
+            linkToPageMenuEntry.remove();
+          } on FlowyError catch (e) {
+            Dialogs.show(
+              FlowyErrorPage.message(
+                e.msg,
+                howToFix: LocaleKeys.errorDialog_howToFixFallback.tr(),
+              ),
+              context,
+            );
+          }
         },
       ),
     ),
@@ -77,15 +91,15 @@ class _LinkToPageMenuState extends State<LinkToPageMenu> {
 
     int index = 0;
     for (final (app, children) in items) {
-      for (final view in children) {
-        _items.putIfAbsent(index, () => (app, view));
-        index += 1;
-      }
+    for (final view in children) {
+    _items.putIfAbsent(index, () => (app, view));
+    index += 1;
+    }
     }
 
     _totalItems = _items.length;
     return items;
-  }
+    }
 
   @override
   void initState() {
@@ -174,10 +188,10 @@ class _LinkToPageMenuState extends State<LinkToPageMenu> {
   }
 
   Widget _buildListWidget(
-    BuildContext context,
-    int selectedIndex,
-    Future<List<(ViewPB, List<ViewPB>)>>? items,
-  ) {
+      BuildContext context,
+      int selectedIndex,
+      Future<List<(ViewPB, List<ViewPB>)>>? items,
+      ) {
     int index = 0;
     return FutureBuilder<List<(ViewPB, List<ViewPB>)>>(
       builder: (context, snapshot) {
@@ -197,59 +211,46 @@ class _LinkToPageMenuState extends State<LinkToPageMenu> {
 
           if (views != null && views.isNotEmpty) {
             for (final (view, viewChildren) in views) {
-              if (viewChildren.isNotEmpty) {
-                children.add(
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4),
-                    child: FlowyText.regular(
-                      view.name,
-                    ),
-                  ),
-                );
+        if (viewChildren.isNotEmpty) {
+        children.add(
+        Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        child: FlowyText.regular(
+        view.name,
+        ),
+        ),
+        );
 
-                for (final value in viewChildren) {
-                  children.add(
-                    FlowyButton(
-                      isSelected: index == _selectedIndex,
-                      leftIcon: svgWidget(
-                        _iconName(value),
-                        color: Theme.of(context).iconTheme.color,
-                      ),
-                      text: FlowyText.regular(value.name),
-                      onTap: () => widget.onSelected(view, value),
-                    ),
-                  );
+        for (final value in viewChildren) {
+        children.add(
+        FlowyButton(
+        isSelected: index == _selectedIndex,
+        leftIcon: svgWidget(
+        value.iconName,
+        color: Theme.of(context).iconTheme.color,
+        ),
+        text: FlowyText.regular(value.name),
+        onTap: () => widget.onSelected(view, value),
+        ),
+        );
 
-                  index += 1;
-                }
-              }
-            }
-          }
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: children,
-          );
+        index += 1;
+        }
+        }
+        }
+        }
+        return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: children,
+        );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+        return const Center(
+        child: CircularProgressIndicator(),
+        );
         }
       },
       future: items,
     );
-  }
-
-  String _iconName(ViewPB viewPB) {
-    switch (viewPB.layout) {
-      case ViewLayoutPB.Grid:
-        return 'editor/grid';
-      case ViewLayoutPB.Board:
-        return 'editor/board';
-      case ViewLayoutPB.Calendar:
-        return 'editor/calendar';
-      default:
-        throw Exception('Unknown layout type');
-    }
   }
 }
 

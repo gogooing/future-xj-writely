@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 class FlowyButton extends StatelessWidget {
   final Widget text;
   final VoidCallback? onTap;
+  final VoidCallback? onSecondaryTap;
   final void Function(bool)? onHover;
   final EdgeInsets? margin;
   final Widget? leftIcon;
@@ -25,6 +26,7 @@ class FlowyButton extends StatelessWidget {
     Key? key,
     required this.text,
     this.onTap,
+    this.onSecondaryTap,
     this.onHover,
     this.margin,
     this.leftIcon,
@@ -45,6 +47,7 @@ class FlowyButton extends StatelessWidget {
       return GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: onTap,
+        onSecondaryTap: onSecondaryTap,
         child: FlowyHover(
           style: HoverStyle(
             borderRadius: radius ?? Corners.s6Border,
@@ -101,7 +104,7 @@ class FlowyButton extends StatelessWidget {
       decoration: decoration,
       child: Padding(
         padding:
-            margin ?? const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+        margin ?? const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
         child: child,
       ),
     );
@@ -131,24 +134,24 @@ class FlowyTextButton extends StatelessWidget {
 
   // final HoverDisplayConfig? hoverDisplay;
   const FlowyTextButton(
-    this.text, {
-    Key? key,
-    this.onPressed,
-    this.fontSize,
-    this.fontColor,
-    this.overflow = TextOverflow.ellipsis,
-    this.fontWeight,
-    this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-    this.hoverColor,
-    this.fillColor,
-    this.heading,
-    this.radius,
-    this.mainAxisAlignment = MainAxisAlignment.start,
-    this.tooltip,
-    this.constraints = const BoxConstraints(minWidth: 58.0, minHeight: 30.0),
-    this.decoration,
-    this.fontFamily,
-  }) : super(key: key);
+      this.text, {
+        Key? key,
+        this.onPressed,
+        this.fontSize,
+        this.fontColor,
+        this.overflow = TextOverflow.ellipsis,
+        this.fontWeight,
+        this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+        this.hoverColor,
+        this.fillColor,
+        this.heading,
+        this.radius,
+        this.mainAxisAlignment = MainAxisAlignment.start,
+        this.tooltip,
+        this.constraints = const BoxConstraints(minWidth: 58.0, minHeight: 30.0),
+        this.decoration,
+        this.fontFamily,
+      }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -186,7 +189,7 @@ class FlowyTextButton extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: radius ?? Corners.s6Border),
       fillColor: fillColor ?? Theme.of(context).colorScheme.secondaryContainer,
       hoverColor:
-          hoverColor ?? Theme.of(context).colorScheme.secondaryContainer,
+      hoverColor ?? Theme.of(context).colorScheme.secondaryContainer,
       focusColor: Colors.transparent,
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
@@ -230,20 +233,20 @@ class FlowyRichTextButton extends StatelessWidget {
 
   // final HoverDisplayConfig? hoverDisplay;
   const FlowyRichTextButton(
-    this.text, {
-    Key? key,
-    this.onPressed,
-    this.overflow = TextOverflow.ellipsis,
-    this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-    this.hoverColor,
-    this.fillColor,
-    this.heading,
-    this.radius,
-    this.mainAxisAlignment = MainAxisAlignment.start,
-    this.tooltip,
-    this.constraints = const BoxConstraints(minWidth: 58.0, minHeight: 30.0),
-    this.decoration,
-  }) : super(key: key);
+      this.text, {
+        Key? key,
+        this.onPressed,
+        this.overflow = TextOverflow.ellipsis,
+        this.padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+        this.hoverColor,
+        this.fillColor,
+        this.heading,
+        this.radius,
+        this.mainAxisAlignment = MainAxisAlignment.start,
+        this.tooltip,
+        this.constraints = const BoxConstraints(minWidth: 58.0, minHeight: 30.0),
+        this.decoration,
+      }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

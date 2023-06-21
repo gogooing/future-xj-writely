@@ -24,12 +24,12 @@ class ViewSectionItem extends StatelessWidget {
   final ViewPB view;
   final void Function(ViewPB) onSelected;
 
-  ViewSectionItem({
+  const ViewSectionItem({
     Key? key,
     required this.view,
     required this.isSelected,
     required this.onSelected,
-  }) : super(key: ValueKey('$view.hashCode/$isSelected'));
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +70,10 @@ class ViewSectionItem extends StatelessWidget {
   }
 
   Widget _render(
-    BuildContext blocContext,
-    bool onHover,
-    ViewState state,
-  ) {
+      BuildContext blocContext,
+      bool onHover,
+      ViewState state,
+      ) {
     final List<Widget> children = [
       SizedBox(
         width: 16,

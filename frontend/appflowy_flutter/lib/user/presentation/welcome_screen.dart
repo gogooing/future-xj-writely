@@ -43,8 +43,8 @@ class WelcomeScreen extends StatelessWidget {
 
   Widget _renderBody(WelcomeState state) {
     final body = state.successOrFailure.fold(
-      (_) => _renderList(state.workspaces),
-      (error) => FlowyErrorPage(error.toString()),
+          (_) => _renderList(state.workspaces),
+          (error) => FlowyErrorPage.message(error.toString(), howToFix: LocaleKeys.errorDialog_howToFixFallback.tr(),),
     );
     return body;
   }
@@ -59,11 +59,11 @@ class WelcomeScreen extends StatelessWidget {
         hoverColor: AFThemeExtension.of(context).lightGreyHover,
         onPressed: () {
           context.read<WelcomeBloc>().add(
-                WelcomeEvent.createWorkspace(
-                  LocaleKeys.workspace_hint.tr(),
-                  "",
-                ),
-              );
+            WelcomeEvent.createWorkspace(
+              LocaleKeys.workspace_hint.tr(),
+              "",
+            ),
+          );
         },
       ),
     );

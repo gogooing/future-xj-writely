@@ -19,9 +19,9 @@ import 'add_button.dart';
 class MenuAppHeader extends StatelessWidget {
   final ViewPB parentView;
   const MenuAppHeader(
-    this.parentView, {
-    Key? key,
-  }) : super(key: key);
+      this.parentView, {
+        Key? key,
+      }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +70,7 @@ class MenuAppHeader extends StatelessWidget {
     return Expanded(
       child: BlocListener<AppBloc, AppState>(
         listenWhen: (p, c) =>
-            (p.latestCreatedView == null && c.latestCreatedView != null),
+        (p.latestCreatedView == null && c.latestCreatedView != null),
         listener: (context, state) {
           final expandableController = ExpandableController.of(
             context,
@@ -111,13 +111,13 @@ class MenuAppHeader extends StatelessWidget {
         parentViewId: parentView.id,
         onSelected: (pluginBuilder, name, initialDataBytes, openAfterCreated) {
           context.read<AppBloc>().add(
-                AppEvent.createView(
-                  name ?? LocaleKeys.menuAppHeader_defaultNewPageName.tr(),
-                  pluginBuilder,
-                  initialDataBytes: initialDataBytes,
-                  openAfterCreated: openAfterCreated,
-                ),
-              );
+            AppEvent.createView(
+              name ?? LocaleKeys.menuAppHeader_defaultNewPageName.tr(),
+              pluginBuilder.layoutType!,
+              initialDataBytes: initialDataBytes,
+              openAfterCreated: openAfterCreated,
+            ),
+          );
         },
       ).padding(right: MenuAppSizes.headerPadding),
     );

@@ -17,11 +17,11 @@ class MenuApp extends StatefulWidget {
 }
 
 class _MenuAppState extends State<MenuApp> {
-  late AppViewDataContext viewDataContext;
+  late ViewDataContext viewDataContext;
 
   @override
   void initState() {
-    viewDataContext = AppViewDataContext(viewId: widget.view.id);
+    viewDataContext = ViewDataContext(viewId: widget.view.id);
     super.initState();
   }
 
@@ -56,7 +56,7 @@ class _MenuAppState extends State<MenuApp> {
           builder: (context, state) {
             return ChangeNotifierProvider.value(
               value: viewDataContext,
-              child: Consumer<AppViewDataContext>(
+              child: Consumer<ViewDataContext>(
                 builder: (context, viewDataContext, _) {
                   return expandableWrapper(context, viewDataContext);
                 },
@@ -69,9 +69,9 @@ class _MenuAppState extends State<MenuApp> {
   }
 
   ExpandableNotifier expandableWrapper(
-    BuildContext context,
-    AppViewDataContext viewDataContext,
-  ) {
+      BuildContext context,
+      ViewDataContext viewDataContext,
+      ) {
     return ExpandableNotifier(
       controller: viewDataContext.expandController,
       child: ScrollOnExpand(

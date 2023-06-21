@@ -237,6 +237,7 @@
     }
   },
   "grid": {
+    "deleteView": "您確定要刪除此視圖嗎？",
     "settings": {
       "filter": "篩選器",
       "sort": "排序",
@@ -477,5 +478,10 @@
       "name": "日曆佈局"
     },
     "referencedCalendarPrefix": "查看"
+  },
+  "errorDialog": {
+    "title": "Writely錯誤",
+    "howToFixFallback": "很抱歉給您帶來不便！在我們的GitHub頁面上提交一個描述您錯誤的問題。",
+    "github": "在GitHub上查看"
   }
 }

@@ -237,6 +237,7 @@
     }
   },
   "grid": {
+    "deleteView": "您确定要删除此视图吗？",
     "settings": {
       "filter": "筛选器",
       "sort": "排序",
@@ -434,7 +435,7 @@
       },
       "optionAction": {
         "click": "点击",
-        "addBelow":" 在下面添加",
+        "addBelow": " 在下面添加",
         "toOpenMenu": " 打开菜单",
         "delete": "删除",
         "duplicate": "复制",
@@ -477,5 +478,10 @@
       "name": "日历布局"
     },
     "referencedCalendarPrefix": "查看"
+  },
+  "errorDialog": {
+    "title": "Writely错误",
+    "howToFixFallback": "很抱歉给您带来不便！在我们的GitHub页面上提交一个描述您错误的问题。",
+    "github": "在GitHub上查看"
   }
 }

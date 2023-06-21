@@ -73,7 +73,7 @@ class ViewBackendService {
     return FolderEventCreateOrphanView(payload).send();
   }
 
-  static Future<Either<ViewPB, FlowyError>> createDatabaseReferenceView({
+  static Future<Either<ViewPB, FlowyError>> createDatabaseLinkedView({
     required String parentViewId,
     required String databaseId,
     required ViewLayoutPB layoutType,
@@ -91,15 +91,15 @@ class ViewBackendService {
   }
 
   /// Returns a list of views that are the children of the given [viewId].
-  static Future<Either<List<ViewPB>, FlowyError>> getViews({
+  static Future<Either<List<ViewPB>, FlowyError>> getChildViews({
     required String viewId,
   }) {
     final payload = ViewIdPB.create()..value = viewId;
 
     return FolderEventReadView(payload).send().then((result) {
       return result.fold(
-        (app) => left(app.childViews),
-        (error) => right(error),
+            (view) => left(view.childViews),
+            (error) => right(error),
       );
     });
   }
@@ -155,16 +155,16 @@ class ViewBackendService {
   }
 
   Future<List<(ViewPB, List<ViewPB>)>> fetchViews(
-    ViewLayoutPB layoutType,
-  ) async {
+      ViewLayoutPB layoutType,
+      ) async {
     final result = <(ViewPB, List<ViewPB>)>[];
     return FolderEventGetCurrentWorkspace().send().then((value) async {
       final workspaces = value.getLeftOrNull<WorkspaceSettingPB>();
       if (workspaces != null) {
         final views = workspaces.workspace.views;
         for (final view in views) {
-          final childViews = await getViews(viewId: view.id).then(
-            (value) => value
+          final childViews = await getChildViews(viewId: view.id).then(
+                (value) => value
                 .getLeftOrNull<List<ViewPB>>()
                 ?.where((e) => e.layout == layoutType)
                 .toList(),
@@ -179,8 +179,8 @@ class ViewBackendService {
   }
 
   static Future<Either<ViewPB, FlowyError>> getView(
-    String viewID,
-  ) async {
+      String viewID,
+      ) async {
     final payload = ViewIdPB.create()..value = viewID;
     return FolderEventReadView(payload).send();
   }
@@ -192,10 +192,10 @@ class ViewBackendService {
     final payload = ViewIdPB.create()..value = parentViewId;
     return FolderEventReadView(payload).send().then((result) {
       return result.fold(
-        (app) => left(
+            (app) => left(
           app.childViews.firstWhere((e) => e.id == childViewId),
         ),
-        (error) => right(error),
+            (error) => right(error),
       );
     });
   }
