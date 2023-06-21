@@ -1,7 +1,7 @@
 class KVKeys {
   const KVKeys._();
 
-  static const String prefix = 'com.futurenav.appwrityly_flutter';
+  static const String prefix = 'com.futurenav.appwritely_flutter';
 
   /// The key for the path location of the local data for the whole app.
   static const String pathLocation = '$prefix.path_location';
