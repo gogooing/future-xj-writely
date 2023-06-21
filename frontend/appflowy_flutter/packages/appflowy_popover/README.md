@@ -1,4 +1,4 @@
-# AppFlowy Popover
+# Writely Popover
 
 A Popover can be used to display some content on top of another.
 

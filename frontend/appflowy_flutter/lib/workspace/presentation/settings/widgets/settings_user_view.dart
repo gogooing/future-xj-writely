@@ -92,6 +92,10 @@ class UserNameInputState extends State<UserNameInput> {
   Widget build(BuildContext context) {
     return TextField(
       controller: _controller,
+      style: const TextStyle(
+        height: 2.0,  // 行高调整，将会影响 TextField 的高度
+        // 其他 TextStyle 的配置
+      ),
       decoration: InputDecoration(
         labelText: LocaleKeys.settings_user_name.tr(),
         labelStyle: Theme.of(context)
@@ -155,6 +159,10 @@ class _OpenaiKeyInputState extends State<_OpenaiKeyInput> {
     return TextField(
       controller: textEditingController,
       obscureText: !visible,
+      style: const TextStyle(
+        height: 2.0,  // 行高调整，将会影响 TextField 的高度
+        // 其他 TextStyle 的配置
+      ),
       decoration: InputDecoration(
         enabledBorder: UnderlineInputBorder(
           borderSide:
@@ -163,7 +171,7 @@ class _OpenaiKeyInputState extends State<_OpenaiKeyInput> {
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
         ),
-        labelText: 'OpenAI Key',
+        labelText: LocaleKeys.settings_user_xiaojunKey.tr(),
         labelStyle: Theme.of(context)
             .textTheme
             .titleMedium!

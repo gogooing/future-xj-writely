@@ -70,7 +70,7 @@ class LanguageItemsListView extends StatelessWidget {
     // get current locale from cubit
     final state = context.watch<AppearanceSettingsCubit>().state;
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxHeight: 400),
+      constraints: const BoxConstraints(maxHeight: 100),
       child: ListView.builder(
         itemBuilder: (context, index) {
           final locale = allLocales[index];

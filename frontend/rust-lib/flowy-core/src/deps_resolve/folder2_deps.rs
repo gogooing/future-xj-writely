@@ -99,7 +99,7 @@ impl FolderOperationHandler for DocumentFolderOperation {
       write_guard
         .with_view_builder(|view_builder| async {
           view_builder
-            .with_name("⭐️ Getting started")
+            .with_name("⭐️ 开始使用")
             .with_child_view_builder(|child_view_builder| async {
               let view = child_view_builder.with_name("Read me").build();
               let json_str = include_str!("../../assets/read_me.json");

@@ -201,7 +201,7 @@ class ViewBackendService {
   }
 }
 
-extension AppFlowy on Either {
+extension Writely on Either {
   T? getLeftOrNull<T>() {
     if (isLeft()) {
       final result = fold<T?>((l) => l, (r) => null);

@@ -17,7 +17,7 @@ This Repository contains the codebase for the frontend of the application, curre
 
 ### Am I Eligible to Contribute?
 
-Yes! You are eligible to contribute, check out the ways in which you can [contribute to AppFlowy](https://appflowy.gitbook.io/docs/essential-documentation/contribute-to-appflowy/contributing-to-appflowy). Some of the ways in which you can contribute are:
+Yes! You are eligible to contribute, check out the ways in which you can [contribute to Writely](https://appflowy.gitbook.io/docs/essential-documentation/contribute-to-appflowy/contributing-to-appflowy). Some of the ways in which you can contribute are:
 
 - Non-Coding Contributions
   - Documentation

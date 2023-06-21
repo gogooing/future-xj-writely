@@ -84,24 +84,19 @@ void main() {
 }
 
 const expectedMarkdown = r'''
-# Welcome to AppFlowy!
-## Here are the basics
-- [ ] Click anywhere and just start typing.
-- [ ] Highlight any text, and use the editing menu to _style_ **your** <u>writing</u> `however` you ~~like.~~
-- [ ] As soon as you type `/` a menu will pop up. Select different types of content blocks you can add.
-- [ ] Type `/` followed by `/bullet` or `/num` to create a list.
-- [x] Click `+ New Page `button at the bottom of your sidebar to add a new page.
-- [ ] Click `+` next to any page title in the sidebar to quickly add a new subpage, `Document`, `Grid`, or `Kanban Board`.
+# 欢迎使用晓君-Writely!
+## 基本操作基本操作
+- [ ] 单击任意位置即可开始输入。
+- [ ] 高亮任何文本，使用编辑菜单来_样式化_ 你的 <u>写作</u> 任何 你想要的方式。高亮任何文本，使用编辑菜单来_样式化_ 你的 <u>写作</u> 任何 你想要的方式。
+- [ ] 一旦你输入 "/" ，一个菜单会弹出。选择不同类型的内容块进行添加。
+- [ ] 输入/后跟 "/bullet" 或 "/num" 创建列表。输入 "/" 后跟 "/bullet" 或 "/num" 创建列表。
+- [x] 单击侧边栏底部的+ 新建页面按钮以添加新页面。
+- [ ] 单击侧边栏中任何页面标题旁边的+，快速添加新子页面，文档，网格或看板板。单击侧边栏中任何页面标题旁边的+，快速添加新子页面，文档，网格或看板板。
 
 ---
 
-## Keyboard shortcuts, markdown, and code block
-1. Keyboard shortcuts [guide](https://appflowy.gitbook.io/docs/essential-documentation/shortcuts)
-1. Markdown [reference](https://appflowy.gitbook.io/docs/essential-documentation/markdown)
-1. Type `/code` to insert a code block
-
-## Have a question❓
-> Click `?` at the bottom right for help and support.
+## 代码块快捷键
+1. 输入 "/code" 来插入代码块
 
 
 

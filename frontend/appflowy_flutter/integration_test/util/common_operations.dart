@@ -16,7 +16,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'util.dart';
 
 extension CommonOperations on WidgetTester {
-  /// Get current file location of AppFlowy.
+  /// Get current file location of Writely.
   Future<String> currentFileLocation() async {
     return TestFolder.currentLocation();
   }

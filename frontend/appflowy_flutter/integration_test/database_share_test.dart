@@ -118,7 +118,7 @@ void main() {
         'appflowy.io',
         'no url',
         'appflowy.io',
-        'https://github.com/AppFlowy-IO/',
+        'https://github.com/Writely-IO/',
         '',
         '',
       ];

@@ -11,7 +11,7 @@ import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 final ToolbarItem smartEditItem = ToolbarItem(
-  id: 'appflowy.editor.smart_edit',
+  id: 'writely.editor.smart_edit',
   group: 0,
   isActive: (editorState) {
     final selection = editorState.selection;

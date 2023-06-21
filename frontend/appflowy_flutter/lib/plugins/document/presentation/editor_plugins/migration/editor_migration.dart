@@ -5,7 +5,7 @@ import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:collection/collection.dart';
 
 class EditorMigration {
-  // AppFlowy 0.1.x -> 0.2
+  // Writely 0.1.x -> 0.2
   //
   // The cover node has been deprecated, and use page/attributes/cover instead.
   // cover node -> page/attributes/cover

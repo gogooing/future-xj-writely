@@ -1,4 +1,4 @@
-# Welcome to AppFlowy!
+# Welcome to Writely!
 
 ## Here are the basics
 

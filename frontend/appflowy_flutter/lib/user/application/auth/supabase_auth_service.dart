@@ -133,7 +133,7 @@ class SupabaseAuthService implements AuthService {
       provider,
       queryParams: query,
       redirectTo:
-          'io.appflowy.appflowy-flutter://login-callback', // can't use underscore here.
+          'com.futurenav.appwritely-flutter://login-callback', // can't use underscore here.
     );
     if (!response) {
       completer.complete(left(AuthError.supabaseSignInWithOauthError));

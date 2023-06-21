@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "AppFlowy")
-set(APPLICATION_ID "io.appflowy.appflowy")
+set(BINARY_NAME "Writely")
+set(APPLICATION_ID "com.futurenav.appwritely")
 
 cmake_policy(SET CMP0063 NEW)
 
@@ -117,4 +117,4 @@ install(DIRECTORY "${PROJECT_BUILD_DIR}/${FLUTTER_ASSET_DIR_NAME}"
 if(NOT CMAKE_BUILD_TYPE MATCHES "Debug")
   install(FILES "${AOT_LIBRARY}" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
     COMPONENT Runtime)
-endif()
+endi

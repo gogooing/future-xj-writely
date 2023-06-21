@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'AppFlowy Popover Example'),
+      home: const MyHomePage(title: 'Writely Popover Example'),
     );
   }
 }

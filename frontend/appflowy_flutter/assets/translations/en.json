@@ -1,5 +1,5 @@
 {
-  "appName": "AppFlowy",
+  "appName": "Writely",
   "defaultUsername": "Me",
   "welcomeText": "Welcome to @:appName",
   "githubStarText": "Star on GitHub",
@@ -198,7 +198,7 @@
       "defaultLocation": "Read files and data storage location",
       "exportData": "Export your data",
       "doubleTapToCopy": "Double tap to copy the path",
-      "restoreLocation": "Restore to AppFlowy default path",
+      "restoreLocation": "Restore to Writely default path",
       "customizeLocation": "Open another folder",
       "restartApp": "Please restart app for the changes to take effect.",
       "exportDatabase": "Export database",
@@ -210,10 +210,10 @@
       "defineWhereYourDataIsStored": "Define where your data is stored",
       "open": "Open",
       "openFolder": "Open an existing folder",
-      "openFolderDesc": "Read and write it to your existing AppFlowy folder",
+      "openFolderDesc": "Read and write it to your existing Writely folder",
       "folderHintText": "folder name",
       "location": "Creating a new folder",
-      "locationDesc": "Pick a name for your AppFlowy data folder",
+      "locationDesc": "Pick a name for your Writely data folder",
       "browser": "Browse",
       "create": "Create",
       "set": "Set",
@@ -223,7 +223,7 @@
       "changeLocationTooltips": "Change the data directory",
       "change": "Change",
       "openLocationTooltips": "Open another data directory",
-      "recoverLocationTooltips": "Reset to AppFlowy's default data directory",
+      "recoverLocationTooltips": "Reset to Writely's default data directory",
       "exportFileSuccess": "Export file successfully!",
       "exportFileFail": "Export file failed!",
       "export": "Export"
@@ -232,7 +232,8 @@
       "name": "Name",
       "icon": "Icon",
       "selectAnIcon": "Select an icon",
-      "pleaseInputYourOpenAIKey": "please input your OpenAI key"
+      "xiaojunKey": "XiaoJun Key",
+      "pleaseInputYourOpenAIKey": "please input your XiaoJun key"
     }
   },
   "grid": {
@@ -433,6 +434,7 @@
       },
       "optionAction": {
         "click": "Click",
+        "addBelow":" to add below",
         "toOpenMenu": " to open menu",
         "delete": "Delete",
         "duplicate": "Duplicate",

@@ -1,6 +1,6 @@
 # Description
 
-This is a guide on how to build the rust SDK for AppFlowy on android.
+This is a guide on how to build the rust SDK for Writely on android.
 Compiling the sdk is easy it just needs a few tweaks.
 When compiling for android we need the following pre-requisites:
 

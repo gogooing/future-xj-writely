@@ -1,44 +1,62 @@
 {
-  "appName": "Appflowy",
+  "appName": "Writely",
   "defaultUsername": "我",
   "welcomeText": "欢迎使用 @:appName",
-  "githubStarText": "Star on GitHub",
-  "subscribeNewsletterText": "消息订阅",
-  "letsGoButtonText": "开始",
+  "githubStarText": "在 GitHub 上加星标",
+  "subscribeNewsletterText": "订阅新闻简报",
+  "letsGoButtonText": "快速开始",
   "title": "标题",
+  "youCanAlso": "你还可以",
+  "and": "和",
   "signUp": {
     "buttonText": "注册",
-    "title": "注册 @:appName 账户",
+    "title": "注册 @:appName",
     "getStartedText": "开始",
     "emptyPasswordError": "密码不能为空",
-    "repeatPasswordEmptyError": "确认密码不能为空",
-    "unmatchedPasswordError": "两次密码输入不一致",
-    "alreadyHaveAnAccount": "已有账户?",
-    "emailHint": "邮箱",
+    "repeatPasswordEmptyError": "重复密码不能为空",
+    "unmatchedPasswordError": "重复密码与密码不相同",
+    "alreadyHaveAnAccount": "已经有账号了吗？",
+    "emailHint": "电子邮件",
     "passwordHint": "密码",
-    "repeatPasswordHint": "确认密码"
+    "repeatPasswordHint": "重复密码"
   },
   "signIn": {
     "loginTitle": "登录 @:appName",
     "loginButtonText": "登录",
+    "loginAsGuestButtonText": "开始",
     "buttonText": "登录",
-    "forgotPassword": "忘记密码?",
-    "emailHint": "邮箱",
+    "forgotPassword": "忘记密码？",
+    "emailHint": "电子邮件",
     "passwordHint": "密码",
-    "dontHaveAnAccount": "没有已注册的账户?",
-    "repeatPasswordEmptyError": "确认密码不能为空",
-    "unmatchedPasswordError": "两次密码输入不一致"
+    "dontHaveAnAccount": "没有账号吗？",
+    "repeatPasswordEmptyError": "重复密码不能为空",
+    "unmatchedPasswordError": "重复密码与密码不相同"
   },
   "workspace": {
-    "create": "新建空间",
-    "hint": "空间",
-    "notFoundError": "未知的空间"
+    "create": "创建工作区",
+    "hint": "工作区",
+    "notFoundError": "未找到工作区"
   },
   "shareAction": {
     "buttonText": "分享",
-    "workInProgress": "敬请期待",
+    "workInProgress": "即将推出",
     "markdown": "Markdown",
     "copyLink": "复制链接"
+  },
+  "moreAction": {
+    "small": "小",
+    "medium": "中",
+    "large": "大",
+    "fontSize": "字体大小",
+    "import": "导入",
+    "moreOptions": "更多选项"
+  },
+  "importPanel": {
+    "textAndMarkdown": "文本和 Markdown",
+    "documentFromV010": "v0.1.0 版本的文档",
+    "databaseFromV010": "v0.1.0 版本的数据库",
+    "csv": "CSV",
+    "database": "数据库"
   },
   "disclosureAction": {
     "rename": "重命名",
@@ -46,101 +64,115 @@
     "duplicate": "复制"
   },
   "blankPageTitle": "空白页",
-  "newPageText": "新页面",
+  "newPageText": "新建页面",
   "trash": {
     "text": "回收站",
-    "restoreAll": "全部恢复",
+    "restoreAll": "全部还原",
     "deleteAll": "全部删除",
     "pageHeader": {
       "fileName": "文件名",
-      "lastModified": "最近修改",
-      "created": "创建"
+      "lastModified": "上次修改时间",
+      "created": "创建时间"
     }
   },
   "deletePagePrompt": {
-    "text": "此页面已被移动至回收站",
-    "restore": "恢复页面",
-    "deletePermanent": "彻底删除"
+    "text": "此页面在回收站中",
+    "restore": "还原页面",
+    "deletePermanent": "永久删除"
   },
   "dialogCreatePageNameHint": "页面名称",
   "questionBubble": {
-    "whatsNew": "新功能?",
-    "help": "帮助 & 支持",
+    "shortcuts": "快捷方式",
+    "whatsNew": "新功能介绍？",
+    "help": "帮助与支持",
+    "markdown": "Markdown",
     "debug": {
       "name": "调试信息",
-      "success": "将调试信息复制到剪贴板！",
+      "success": "已将调试信息复制到剪贴板！",
       "fail": "无法将调试信息复制到剪贴板"
     }
   },
   "menuAppHeader": {
-    "addPageTooltip": "在其中快速添加页面",
-    "defaultNewPageName": "未命名页面",
+    "addPageTooltip": "在内部快速添加页面",
+    "defaultNewPageName": "未命名",
     "renameDialog": "重命名"
   },
   "toolbar": {
     "undo": "撤销",
-    "redo": "恢复",
-    "bold": "加粗",
+    "redo": "重做",
+    "bold": "粗体",
     "italic": "斜体",
     "underline": "下划线",
     "strike": "删除线",
-    "numList": "有序列表",
-    "bulletList": "无序列表",
+    "numList": "数字列表",
+    "bulletList": "项目列表",
     "checkList": "任务列表",
-    "inlineCode": "内联代码",
-    "quote": "块引用",
+    "inlineCode": "行内代码",
+    "quote": "引用块",
     "header": "标题",
-    "highlight": "高亮"
+    "highlight": "高亮",
+    "color": "颜色"
   },
   "tooltip": {
-    "lightMode": "切换到亮色模式",
-    "darkMode": "切换到暗色模式",
+    "lightMode": "切换到浅色模式",
+    "darkMode": "切换到深色模式",
     "openAsPage": "作为页面打开",
-    "addNewRow": "增加一行",
-    "openMenu": "点击打开菜单"
+    "addNewRow": "添加新行",
+    "openMenu": "点击打开菜单",
+    "dragRow": "长按重新排序行",
+    "viewDataBase": "查看数据库",
+    "referencePage": "此{name}被引用"
   },
   "sideBar": {
-    "openSidebar": "打开侧边栏",
-    "closeSidebar": "关闭侧边栏"
+    "closeSidebar": "关闭侧边栏",
+    "openSidebar": "打开侧边栏"
   },
   "notifications": {
     "export": {
-      "markdown": "导出笔记为Markdown文档",
+      "markdown": "导出笔记到 Markdown",
       "path": "Documents/flowy"
     }
   },
   "contactsPage": {
     "title": "联系人",
-    "whatsHappening": "这周发生了哪些事?",
+    "whatsHappening": "本周有什么活动？",
     "addContact": "添加联系人",
     "editContact": "编辑联系人"
   },
   "button": {
-    "OK": "确认",
+    "OK": "确定",
+    "Done": "完成",
     "Cancel": "取消",
     "signIn": "登录",
-    "signOut": "登出",
+    "signOut": "退出登录",
     "complete": "完成",
-    "save": "保存"
+    "save": "保存",
+    "generate": "生成",
+    "esc": "ESC",
+    "keep": "保留",
+    "tryAgain": "重试",
+    "discard": "放弃",
+    "replace": "替换",
+    "insertBelow": "插入到下方"
   },
   "label": {
-    "welcome": "欢迎!",
-    "firstName": "名",
+    "welcome": "欢迎！",
+    "firstName": "名字",
     "middleName": "中间名",
-    "lastName": "姓",
-    "stepX": "第{X}步"
+    "lastName": "姓氏",
+    "stepX": "第 {X} 步"
   },
   "oAuth": {
     "err": {
       "failedTitle": "无法连接到您的账户。",
-      "failedMsg": "请确认您已在浏览器中完成登录。"
+      "failedMsg": "请确保您已在浏览器中完成登录过程。"
     },
     "google": {
-      "title": "Google 账号登录",
-      "instruction1": "为了导入您的 Google 联系人，您需要在浏览器中给予本程序授权。",
-      "instruction2": "单击图标或选择文本复制到剪贴板：",
-      "instruction3": "进入下面的链接，然后输入上面的代码：",
-      "instruction4": "完成注册后，点击下面的按钮："
+      "title": "Google 登录",
+      "instruction1": "为了导入您的 Google 联系人，您需要使用浏览器授权此应用程序。",
+      "instruction2": "通过单击图标或选择文本将此代码复制到剪贴板中：",
+      "instruction3": "在您的 Web 浏览器中导航到以下链接，并输入上面的代码：",
+      "instruction4": "完成注册后，请单击下面的按钮："
     }
   },
   "settings": {
@@ -149,92 +181,301 @@
       "appearance": "外观",
       "language": "语言",
       "user": "用户",
+      "files": "文件",
       "open": "打开设置"
     },
     "appearance": {
       "themeMode": {
-        "label": "Theme Mode",
-        "light": "日间模式",
-        "dark": "夜间模式",
-        "system": "Adapt to System"
-      }
+        "label": "主题模式",
+        "light": "浅色模式",
+        "dark": "深色模式",
+        "system": "适应系统"
+      },
+      "theme": "主题"
+    },
+    "files": {
+      "copy": "复制",
+      "defaultLocation": "读取文件和数据存储位置",
+      "exportData": "导出您的数据",
+      "doubleTapToCopy": "双击复制路径",
+      "restoreLocation": "恢复为 Writely 默认路径",
+      "customizeLocation": "打开另一个文件夹",
+      "restartApp": "请重新启动应用程序以使更改生效。",
+      "exportDatabase": "导出数据库",
+      "selectFiles": "选择需要导出的文件",
+      "selectAll": "全选",
+      "deselectAll": "取消全选",
+      "createNewFolder": "创建新文件夹",
+      "createNewFolderDesc": "告诉我们您想要存储数据的位置",
+      "defineWhereYourDataIsStored": "定义数据存储位置",
+      "open": "打开",
+      "openFolder": "打开现有文件夹",
+      "openFolderDesc": "读取和写入到您现有的 Writely 文件夹",
+      "folderHintText": "文件夹名称",
+      "location": "正在创建新文件夹",
+      "locationDesc": "为 Writely 数据文件夹选择一个名称",
+      "browser": "浏览",
+      "create": "创建",
+      "set": "设置",
+      "folderPath": "存储文件夹的路径",
+      "locationCannotBeEmpty": "路径不能为空",
+      "pathCopiedSnackbar": "文件存储路径已复制到剪贴板！",
+      "changeLocationTooltips": "更改数据目录",
+      "change": "更改",
+      "openLocationTooltips": "打开另一个数据目录",
+      "recoverLocationTooltips": "重置为 Writely 的默认数据目录",
+      "exportFileSuccess": "成功导出文件！",
+      "exportFileFail": "导出文件失败！",
+      "export": "导出"
+    },
+    "user": {
+      "name": "姓名",
+      "icon": "图标",
+      "selectAnIcon": "选择一个图标",
+      "xiaojunKey": "晓君 Key",
+      "pleaseInputYourOpenAIKey": "请输入您的 晓君 密钥"
     }
   },
   "grid": {
     "settings": {
-      "filter": "过滤器",
-      "sortBy": "排序",
+      "filter": "筛选器",
+      "sort": "排序",
+      "sortBy": "排序方式",
       "Properties": "属性",
-      "group": "组"
+      "group": "分组",
+      "addFilter": "添加筛选器",
+      "deleteFilter": "删除筛选器",
+      "filterBy": "按...筛选",
+      "typeAValue": "输入值...",
+      "layout": "布局",
+      "databaseLayout": "布局"
+    },
+    "textFilter": {
+      "contains": "包含",
+      "doesNotContain": "不包含",
+      "endsWith": "以...结尾",
+      "startWith": "以...开始",
+      "is": "是",
+      "isNot": "不是",
+      "isEmpty": "为空",
+      "isNotEmpty": "不为空",
+      "choicechipPrefix": {
+        "isNot": "不是",
+        "startWith": "以...开始",
+        "endWith": "以...结尾",
+        "isEmpty": "为空",
+        "isNotEmpty": "不为空"
+      }
+    },
+    "checkboxFilter": {
+      "isChecked": "已选中",
+      "isUnchecked": "未选中",
+      "choicechipPrefix": {
+        "is": "是"
+      }
+    },
+    "checklistFilter": {
+      "isComplete": "已完成",
+      "isIncomplted": "未完成"
+    },
+    "singleSelectOptionFilter": {
+      "is": "是",
+      "isNot": "不是",
+      "isEmpty": "为空",
+      "isNotEmpty": "不为空"
+    },
+    "multiSelectOptionFilter": {
+      "contains": "包含",
+      "doesNotContain": "不包含",
+      "isEmpty": "为空",
+      "isNotEmpty": "不为空"
     },
     "field": {
       "hide": "隐藏",
-      "insertLeft": "左侧插入",
-      "insertRight": "右侧插入",
-      "duplicate": "拷贝",
+      "insertLeft": "向左插入",
+      "insertRight": "向右插入",
+      "duplicate": "复制",
       "delete": "删除",
       "textFieldName": "文本",
-      "checkboxFieldName": "勾选框",
+      "checkboxFieldName": "复选框",
       "dateFieldName": "日期",
+      "updatedAtFieldName": "最后修改时间",
+      "createdAtFieldName": "创建时间",
       "numberFieldName": "数字",
-      "singleSelectFieldName": "单项选择器",
-      "multiSelectFieldName": "多项选择器",
-      "urlFieldName": "链接",
+      "singleSelectFieldName": "单选",
+      "multiSelectFieldName": "多选",
+      "urlFieldName": "网址",
+      "checklistFieldName": "清单",
       "numberFormat": "数字格式",
       "dateFormat": "日期格式",
       "includeTime": "包含时间",
-      "dateFormatFriendly": "月 日, 年",
+      "dateFormatFriendly": "年月日",
       "dateFormatISO": "年-月-日",
       "dateFormatLocal": "月/日/年",
       "dateFormatUS": "年/月/日",
+      "dateFormatDayMonthYear": "日/月/年",
       "timeFormat": "时间格式",
-      "invalidTimeFormat": "时间格式错误",
-      "timeFormatTwelveHour": "12小时制",
-      "timeFormatTwentyFourHour": "24小时制",
-      "addSelectOption": "添加一个标签",
-      "optionTitle": "标签",
-      "addOption": "添加标签",
-      "editProperty": "编辑列属性",
-      "newProperty": "增加一列",
-      "deleteFieldPromptMessage": "确定要删除这个属性吗? "
+      "invalidTimeFormat": "格式无效",
+      "timeFormatTwelveHour": "12小时",
+      "timeFormatTwentyFourHour": "24小时",
+      "addSelectOption": "添加选项",
+      "optionTitle": "选项",
+      "addOption": "添加选项",
+      "editProperty": "编辑属性",
+      "newProperty": "新属性",
+      "deleteFieldPromptMessage": "确定吗？此属性将被删除"
+    },
+    "sort": {
+      "ascending": "升序",
+      "descending": "降序",
+      "deleteSort": "删除排序",
+      "addSort": "添加排序"
     },
     "row": {
       "duplicate": "复制",
       "delete": "删除",
       "textPlaceholder": "空",
-      "copyProperty": "复制列",
+      "copyProperty": "已复制属性到剪贴板",
       "count": "数量",
-      "newRow": "添加一行"
+      "newRow": "新行",
+      "action": "操作"
     },
     "selectOption": {
-      "create": "新建",
+      "create": "创建",
       "purpleColor": "紫色",
       "pinkColor": "粉色",
       "lightPinkColor": "浅粉色",
       "orangeColor": "橙色",
       "yellowColor": "黄色",
-      "limeColor": "鲜绿色",
+      "limeColor": "绿黄色",
       "greenColor": "绿色",
-      "aquaColor": "水蓝色",
+      "aquaColor": "青色",
       "blueColor": "蓝色",
       "deleteTag": "删除标签",
       "colorPanelTitle": "颜色",
-      "panelTitle": "选择或新建一个标签",
-      "searchOption": "搜索标签"
+      "panelTitle": "选择选项或创建选项",
+      "searchOption": "搜索选项"
     },
-    "menuName": "网格"
+    "checklist": {
+      "panelTitle": "添加项目"
+    },
+    "menuName": "网格",
+    "referencedGridPrefix": "查看"
   },
   "document": {
     "menuName": "文档",
     "date": {
-      "timeHintTextInTwelveHour": "01:00 PM",
+      "timeHintTextInTwelveHour": "下午01:00",
       "timeHintTextInTwentyFourHour": "13:00"
+    },
+    "slashMenu": {
+      "board": {
+        "selectABoardToLinkTo": "选择要链接的看板",
+        "createANewBoard": "创建新看板"
+      },
+      "grid": {
+        "selectAGridToLinkTo": "选择要链接的网格",
+        "createANewGrid": "创建新网格"
+      },
+      "calendar": {
+        "selectACalendarToLinkTo": "选择要链接的日历",
+        "createANewCalendar": "创建新日历"
+      }
+    },
+    "plugins": {
+      "referencedBoard": "引用的看板",
+      "referencedGrid": "引用的网格",
+      "referencedCalendar": "引用的日历",
+      "autoGeneratorMenuItemName": "OpenAI Writer",
+      "autoGeneratorTitleName": "OpenAI: Ask AI to write anything...",
+      "autoGeneratorLearnMore": "了解更多",
+      "autoGeneratorGenerate": "生成",
+      "autoGeneratorHintText": "询问 OpenAI ...",
+      "autoGeneratorCantGetOpenAIKey": "无法获取OpenAI密钥",
+      "autoGeneratorRewrite": "重写",
+      "smartEdit": "AI助手",
+      "openAI": "OpenAI",
+      "smartEditFixSpelling": "修正拼写",
+      "warning": "⚠️ AI回应可能不准确或误导。",
+      "smartEditSummarize": "概括",
+      "smartEditImproveWriting": "改进写作",
+      "smartEditMakeLonger": "加长",
+      "smartEditCouldNotFetchResult": "无法从OpenAI获取结果",
+      "smartEditCouldNotFetchKey": "无法获取OpenAI密钥",
+      "smartEditDisabled": "在设置中连接OpenAI",
+      "discardResponse": "是否要放弃AI响应？",
+      "cover": {
+        "changeCover": "更改封面",
+        "colors": "颜色",
+        "images": "图片",
+        "clearAll": "清除全部",
+        "abstract": "抽象",
+        "addCover": "添加封面",
+        "addLocalImage": "添加本地图片",
+        "invalidImageUrl": "无效的图片网址",
+        "failedToAddImageToGallery": "添加图库失败",
+        "enterImageUrl": "输入图片网址",
+        "add": "添加",
+        "back": "返回",
+        "saveToGallery": "保存到图库",
+        "removeIcon": "删除图标",
+        "pasteImageUrl": "粘贴图片网址",
+        "or": "或",
+        "pickFromFiles": "从文件中选择",
+        "couldNotFetchImage": "无法获取图片",
+        "imageSavingFailed": "图像保存失败",
+        "addIcon": "添加图标",
+        "coverRemoveAlert": "删除后将从封面中删除。",
+        "alertDialogConfirmation": "确定要继续吗？"
+      },
+      "mathEquation": {
+        "addMathEquation": "添加数学方程",
+        "editMathEquation": "编辑数学方程"
+      },
+      "optionAction": {
+        "click": "点击",
+        "addBelow":" 在下面添加",
+        "toOpenMenu": " 打开菜单",
+        "delete": "删除",
+        "duplicate": "复制",
+        "turnInto": "转换为",
+        "moveUp": "向上移动",
+        "moveDown": "向下移动",
+        "color": "颜色",
+        "align": "对齐方式",
+        "left": "左对齐",
+        "center": "居中对齐",
+        "right": "右对齐",
+        "defaultColor": "默认"
+      }
     }
   },
   "board": {
     "column": {
       "create_new_card": "新建"
     },
-    "menuName": "看板"
+    "menuName": "看板",
+    "referencedBoardPrefix": "查看"
+  },
+  "calendar": {
+    "menuName": "日历",
+    "defaultNewCalendarTitle": "无标题",
+    "navigation": {
+      "today": "今天",
+      "jumpToday": "跳转到今天",
+      "previousMonth": "上个月",
+      "nextMonth": "下个月"
+    },
+    "settings": {
+      "showWeekNumbers": "显示周数",
+      "showWeekends": "显示周末",
+      "firstDayOfWeek": "周起始于",
+      "layoutDateField": "按日期布局",
+      "noDateTitle": "无日期",
+      "noDateHint": "未安排的事件将显示在此处",
+      "clickToAdd": "单击以添加到日历",
+      "name": "日历布局"
+    },
+    "referencedCalendarPrefix": "查看"
   }
 }

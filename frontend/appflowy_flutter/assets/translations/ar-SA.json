@@ -1,5 +1,5 @@
 {
-    "appName": "AppFlowy",
+    "appName": "Writely",
     "defaultUsername": "أنا",
     "welcomeText": "مرحبًا بك في @: appName",
     "githubStarText": "نجمة على GitHub",
@@ -184,7 +184,7 @@
         "files": {
             "defaultLocation": "أين يتم تخزين بياناتك الآن",
             "doubleTapToCopy": "انقر نقرًا مزدوجًا لنسخ المسار",
-            "restoreLocation": "استعادة المسار الافتراضي AppFlowy",
+            "restoreLocation": "استعادة المسار الافتراضي Writely",
             "customizeLocation": "افتح مجلدًا آخر",
             "restartApp": "يرجى إعادة تشغيل التطبيق لتصبح التغييرات سارية المفعول.",
             "exportDatabase": "تصدير قاعدة البيانات",
@@ -193,10 +193,10 @@
             "createNewFolderDesc": "أخبرنا بالمكان الذي تريد تخزين بياناتك فيه",
             "open": "يفتح",
             "openFolder": "افتح مجلدًا موجودًا",
-            "openFolderDesc": "اقرأها واكتبها في مجلد AppFlowy الموجود لديك",
+            "openFolderDesc": "اقرأها واكتبها في مجلد Writely الموجود لديك",
             "folderHintText": "إسم الملف",
             "location": "إنشاء مجلد جديد",
-            "locationDesc": "اختر اسمًا لمجلد بيانات AppFlowy",
+            "locationDesc": "اختر اسمًا لمجلد بيانات Writely",
             "browser": "تصفح",
             "create": "يخلق",
             "folderPath": "مسار لتخزين المجلد الخاص بك",

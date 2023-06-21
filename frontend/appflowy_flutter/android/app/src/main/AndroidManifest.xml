@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.appflowy.appflowy">
+    package="com.futurenav.appwritely">
    <application
         android:label="appflowy_flutter"
         android:icon="@mipmap/ic_launcher"

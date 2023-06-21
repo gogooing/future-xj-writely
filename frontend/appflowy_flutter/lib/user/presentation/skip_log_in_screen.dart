@@ -148,7 +148,7 @@ class SkipLoginPageFooter extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           HSpace(placeholderWidth),
-          Expanded(child: SubscribeButtons()),
+          // Expanded(child: SubscribeButtons()),
           SizedBox(
             width: placeholderWidth,
             height: 28,
@@ -187,7 +187,7 @@ class SubscribeButtons extends StatelessWidget {
           hoverColor: Colors.transparent,
           fillColor: Colors.transparent,
           onPressed: () => _launchURL(
-            'https://github.com/AppFlowy-IO/appflowy',
+            'https://github.com/Writely-IO/appflowy',
           ),
         ),
         FlowyText.regular(
@@ -227,7 +227,7 @@ class LanguageSelectorOnWelcomePage extends StatelessWidget {
     return BlocBuilder<AppearanceSettingsCubit, AppearanceSettingsState>(
       builder: (context, state) {
         return AppFlowyPopover(
-          offset: const Offset(0, -450),
+          offset: const Offset(0, -150),
           direction: PopoverDirection.bottomWithRightAligned,
           child: FlowyButton(
             useIntrinsicWidth: true,

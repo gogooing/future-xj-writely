@@ -15,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class TestFolder {
   /// Location / Path
 
-  /// Set a given AppFlowy data storage location under test environment.
+  /// Set a given Writely data storage location under test environment.
   ///
   /// To pass null means clear the location.
   ///

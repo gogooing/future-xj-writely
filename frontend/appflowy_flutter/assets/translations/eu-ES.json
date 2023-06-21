@@ -1,5 +1,5 @@
 {
-  "appName": "AppFlowy",
+  "appName": "Writely",
   "defaultUsername": "Ni",
   "welcomeText": "Ongietorri @:appName -ra",
   "githubStarText": "Izarra GitHub-en",
@@ -171,7 +171,7 @@
     "files": {
       "defaultLocation": "Non gordetzen diren zure datuak",
       "doubleTapToCopy": "Sakatu birritan bidea kopiatzeko",
-      "restoreLocation": "Berrezarri AppFlowy-ren biden lehenetsira",
+      "restoreLocation": "Berrezarri Writely-ren biden lehenetsira",
       "customizeLocation": "Beste karpeta bat ireki",
       "restartApp": "Mesedez, berrabiarazi aplikazioa aldaketak indarrean egon daitezen.",
       "exportDatabase": "Datubasea exportatu",
@@ -180,10 +180,10 @@
       "createNewFolderDesc": "Non nahi dituzu datuak gorde ...",
       "open": "Oreki",
       "openFolder": "Ireki karpeta bat",
-      "openFolderDesc": "Irakurri eta idatzi zure AppFlowy karpetan...",
+      "openFolderDesc": "Irakurri eta idatzi zure Writely karpetan...",
       "folderHintText": "karpetaren izena",
       "location": "Karpeta berria sortzen",
-      "locationDesc": "Aukeratu izen bat AppFlowy datuen karpetarako",
+      "locationDesc": "Aukeratu izen bat Writely datuen karpetarako",
       "browser": "Bilatu",
       "create": "Sortu",
       "folderPath": "Zure karpeta gordetzeko bidea",

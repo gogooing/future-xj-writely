@@ -10,7 +10,7 @@ import 'package:window_manager/window_manager.dart';
 class InitAppWindowTask extends LaunchTask with WindowListener {
   const InitAppWindowTask({
     this.minimumSize = const Size(800, 600),
-    this.title = 'AppFlowy',
+    this.title = 'Writely',
   });
 
   final Size minimumSize;

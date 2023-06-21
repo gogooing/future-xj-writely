@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=AppFlowy
+Name=Writely
 Comment=An Open Source Alternative to Notion
-Icon=[CHANGE_THIS]/AppFlowy/flowy_logo.svg
-Exec=[CHANGE_THIS]/AppFlowy/AppFlowy
+Icon=[CHANGE_THIS]/Writely/flowy_logo.svg
+Exec=[CHANGE_THIS]/Writely/Writely
 Categories=Office
 Type=Application
 Terminal=false

@@ -19,9 +19,9 @@ enum OpenAIRequestType {
   Uri get uri {
     switch (this) {
       case OpenAIRequestType.textCompletion:
-        return Uri.parse('https://api.openai.com/v1/completions');
+        return Uri.parse('https://xiaojunai.com/api/v1/completions');
       case OpenAIRequestType.textEdit:
-        return Uri.parse('https://api.openai.com/v1/edits');
+        return Uri.parse('https://xiaojunai.com/api/v1/edits');
     }
   }
 }

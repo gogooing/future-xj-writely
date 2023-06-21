@@ -1,246 +1,275 @@
 {
-  "appName": "AppFlowy",
+  "appName": "Writely",
   "defaultUsername": "我",
   "welcomeText": "歡迎使用 @:appName",
-  "githubStarText": "在 GitHub 點星",
-  "subscribeNewsletterText": "訂閱電子報",
-  "letsGoButtonText": "出發吧",
+  "githubStarText": "在 GitHub 上加星標",
+  "subscribeNewsletterText": "訂閱新聞簡報",
+  "letsGoButtonText": "快速開始",
   "title": "標題",
+  "youCanAlso": "你還可以",
+  "and": "和",
   "signUp": {
     "buttonText": "註冊",
     "title": "註冊 @:appName",
-    "getStartedText": "開始使用",
+    "getStartedText": "開始",
     "emptyPasswordError": "密碼不能為空",
-    "repeatPasswordEmptyError": "確認密碼不能為空",
-    "unmatchedPasswordError": "確認密碼與密碼不符",
-    "alreadyHaveAnAccount": "已經有帳號了嗎？",
-    "emailHint": "電子郵件地址",
+    "repeatPasswordEmptyError": "重複密碼不能為空",
+    "unmatchedPasswordError": "重複密碼與密碼不相同",
+    "alreadyHaveAnAccount": "已經有賬號了嗎？",
+    "emailHint": "電子郵件",
     "passwordHint": "密碼",
-    "repeatPasswordHint": "確認密碼"
+    "repeatPasswordHint": "重複密碼"
   },
   "signIn": {
-    "loginTitle": "登入 @:appName",
-    "loginButtonText": "登入",
-    "buttonText": "登入",
+    "loginTitle": "登錄 @:appName",
+    "loginButtonText": "登錄",
+    "loginAsGuestButtonText": "開始",
+    "buttonText": "登錄",
     "forgotPassword": "忘記密碼？",
-    "emailHint": "電子郵件地址",
+    "emailHint": "電子郵件",
     "passwordHint": "密碼",
-    "dontHaveAnAccount": "沒有帳號？",
-    "repeatPasswordEmptyError": "確認密碼不能為空",
-    "unmatchedPasswordError": "確認密碼與密碼不符"
+    "dontHaveAnAccount": "沒有賬號嗎？",
+    "repeatPasswordEmptyError": "重複密碼不能為空",
+    "unmatchedPasswordError": "重複密碼與密碼不相同"
   },
   "workspace": {
-    "create": "建立工作區",
+    "create": "創建工作區",
     "hint": "工作區",
-    "notFoundError": "找不到工作區"
+    "notFoundError": "未找到工作區"
   },
   "shareAction": {
     "buttonText": "分享",
     "workInProgress": "即將推出",
     "markdown": "Markdown",
-    "copyLink": "複製連結"
+    "copyLink": "複製鏈接"
   },
   "moreAction": {
     "small": "小",
     "medium": "中",
     "large": "大",
     "fontSize": "字體大小",
-    "import": "匯入"
+    "import": "導入",
+    "moreOptions": "更多選項"
+  },
+  "importPanel": {
+    "textAndMarkdown": "文本和 Markdown",
+    "documentFromV010": "v0.1.0 版本的文檔",
+    "databaseFromV010": "v0.1.0 版本的數據庫",
+    "csv": "CSV",
+    "database": "數據庫"
   },
   "disclosureAction": {
-    "rename": "重新命名",
+    "rename": "重命名",
     "delete": "刪除",
     "duplicate": "複製"
   },
-  "blankPageTitle": "空白頁面",
-  "newPageText": "新頁面",
+  "blankPageTitle": "空白頁",
+  "newPageText": "新建頁面",
   "trash": {
-    "text": "垃圾筒",
-    "restoreAll": "全部復原",
+    "text": "回收站",
+    "restoreAll": "全部還原",
     "deleteAll": "全部刪除",
     "pageHeader": {
-      "fileName": "檔案名稱",
-      "lastModified": "最後修改時間",
-      "created": "建立時間"
+      "fileName": "文件名",
+      "lastModified": "上次修改時間",
+      "created": "創建時間"
     }
   },
   "deletePagePrompt": {
-    "text": "此頁面在垃圾筒中",
-    "restore": "復原頁面",
+    "text": "此頁面在回收站中",
+    "restore": "還原頁面",
     "deletePermanent": "永久刪除"
   },
   "dialogCreatePageNameHint": "頁面名稱",
   "questionBubble": {
-    "shortcuts": "快捷鍵",
-    "whatsNew": "新功能",
-    "help": "幫助 & 支援",
+    "shortcuts": "快捷方式",
+    "whatsNew": "新功能介紹？",
+    "help": "幫助與支持",
+    "markdown": "Markdown",
     "debug": {
-      "name": "除錯資訊",
-      "success": "已將除錯資訊複製至剪貼簿！",
-      "fail": "無法將除錯資訊複製至剪貼簿"
+      "name": "調試信息",
+      "success": "已將調試信息複製到剪貼板！",
+      "fail": "無法將調試信息複製到剪貼板"
     }
   },
   "menuAppHeader": {
-    "addPageTooltip": "快速新增頁面",
+    "addPageTooltip": "在內部快速添加頁面",
     "defaultNewPageName": "未命名",
-    "renameDialog": "重新命名"
+    "renameDialog": "重命名"
   },
   "toolbar": {
-    "undo": "復原",
-    "redo": "取消復原",
+    "undo": "撤銷",
+    "redo": "重做",
     "bold": "粗體",
     "italic": "斜體",
-    "underline": "底線",
+    "underline": "下劃線",
     "strike": "刪除線",
-    "numList": "有序清單",
-    "bulletList": "無序清單",
-    "checkList": "核取清單",
-    "inlineCode": "程式碼",
-    "quote": "區塊引言",
+    "numList": "數字列表",
+    "bulletList": "項目列表",
+    "checkList": "任務列表",
+    "inlineCode": "行內代碼",
+    "quote": "引用塊",
     "header": "標題",
-    "highlight": "反白",
+    "highlight": "高亮",
     "color": "顏色"
   },
   "tooltip": {
-    "lightMode": "切換至亮色模式",
-    "darkMode": "切換至暗色模式",
-    "openAsPage": "以頁面開啓",
-    "addNewRow": "新增列表",
-    "openMenu": "點擊開啓選單",
-    "viewDataBase": "查看資料庫",
-    "referencePage": "這個 {name} 已參照"
+    "lightMode": "切換到淺色模式",
+    "darkMode": "切換到深色模式",
+    "openAsPage": "作為頁面打開",
+    "addNewRow": "添加新行",
+    "openMenu": "點擊打開菜單",
+    "dragRow": "長按重新排序行",
+    "viewDataBase": "查看數據庫",
+    "referencePage": "此{name}被引用"
   },
   "sideBar": {
     "closeSidebar": "關閉側邊欄",
-    "openSidebar": "開啓側邊欄"
+    "openSidebar": "打開側邊欄"
   },
   "notifications": {
     "export": {
-      "markdown": "已將筆記匯出成 Markdown",
+      "markdown": "導出筆記到 Markdown",
       "path": "Documents/flowy"
     }
   },
   "contactsPage": {
-    "title": "聯絡人",
-    "whatsHappening": "這周有甚麼新鮮事？",
-    "addContact": "新增聯絡人",
-    "editContact": "編輯聯絡人"
+    "title": "聯繫人",
+    "whatsHappening": "本周有什麼活動？",
+    "addContact": "添加聯繫人",
+    "editContact": "編輯聯繫人"
   },
   "button": {
-    "OK": "OK",
+    "OK": "確定",
+    "Done": "完成",
     "Cancel": "取消",
-    "signIn": "登入",
-    "signOut": "登出",
+    "signIn": "登錄",
+    "signOut": "退出登錄",
     "complete": "完成",
-    "save": "儲存",
-    "generate": "產生",
-    "esc": "離開",
-    "keep": "保存",
-    "tryAgain": "再試一次",
-    "discard": "放棄變更",
-    "replace": "取代",
-    "insertBelow": "在下面插入"
+    "save": "保存",
+    "generate": "生成",
+    "esc": "ESC",
+    "keep": "保留",
+    "tryAgain": "重試",
+    "discard": "放棄",
+    "replace": "替換",
+    "insertBelow": "插入到下方"
   },
   "label": {
     "welcome": "歡迎！",
-    "firstName": "名",
+    "firstName": "名字",
     "middleName": "中間名",
-    "lastName": "姓",
-    "stepX": "步驟 {X}"
+    "lastName": "姓氏",
+    "stepX": "第 {X} 步"
   },
   "oAuth": {
     "err": {
-      "failedTitle": "無法連接至您的帳號。",
-      "failedMsg": "請確認您已在瀏覽器中完成登入程序："
+      "failedTitle": "無法連接到您的賬戶。",
+      "failedMsg": "請確保您已在瀏覽器中完成登錄過程。"
     },
     "google": {
-      "title": "GOOGLE 登入",
-      "instruction1": "若要匯入您的 Google 聯絡人，您必須透過瀏覽器授權此應用程式：",
-      "instruction2": "點擊圖示或選取文字以複製代碼：",
-      "instruction3": "前往下列網址，並輸入上述代碼：",
-      "instruction4": "完成註冊後，請點擊下方按鈕："
+      "title": "Google 登錄",
+      "instruction1": "為了導入您的 Google 聯繫人，您需要使用瀏覽器授權此應用程序。",
+      "instruction2": "通過單擊圖標或選擇文本將此代碼複製到剪貼板中：",
+      "instruction3": "在您的 Web 瀏覽器中導航到以下鏈接，並輸入上面的代碼：",
+      "instruction4": "完成註冊後，請單擊下面的按鈕："
     }
   },
   "settings": {
-    "title": "設定",
+    "title": "設置",
     "menu": {
       "appearance": "外觀",
       "language": "語言",
-      "user": "使用者",
-      "files": "檔案",
-      "open": "開啟設定"
+      "user": "用戶",
+      "files": "文件",
+      "open": "打開設置"
     },
     "appearance": {
       "themeMode": {
         "label": "主題模式",
-        "light": "亮色模式",
-        "dark": "暗色模式",
-        "system": "系統設定"
+        "light": "淺色模式",
+        "dark": "深色模式",
+        "system": "適應系統"
       },
       "theme": "主題"
     },
     "files": {
-      "defaultLocation": "Appflowy 資料儲存位置",
-      "doubleTapToCopy": "雙擊以複製路徑",
-      "restoreLocation": "回復 Appflowy 預設路徑",
-      "customizeLocation": "開啓其他資料夾",
-      "restartApp": "請重新啓動以讓更動生效",
-      "exportDatabase": "匯出資料庫",
-      "selectFiles": "選擇需要匯出的檔案",
-      "createNewFolder": "建立新檔案",
-      "createNewFolderDesc": "選擇你想儲存資料的位置",
+      "copy": "複製",
+      "defaultLocation": "讀取文件和數據存儲位置",
+      "exportData": "導出您的數據",
+      "doubleTapToCopy": "雙擊複製路徑",
+      "restoreLocation": "恢復為 Writely 默認路徑",
+      "customizeLocation": "打開另一個文件夾",
+      "restartApp": "請重新啟動應用程序以使更改生效。",
+      "exportDatabase": "導出數據庫",
+      "selectFiles": "選擇需要導出的文件",
+      "selectAll": "全選",
+      "deselectAll": "取消全選",
+      "createNewFolder": "創建新文件夾",
+      "createNewFolderDesc": "告訴我們您想要存儲數據的位置",
+      "defineWhereYourDataIsStored": "定義數據存儲位置",
       "open": "打開",
-      "openFolder": "開啓一個已經存在的資料夾",
-      "openFolderDesc": "讀寫已存在的 AppFlowy 資料夾",
-      "folderHintText": "資料夾名稱",
-      "location": "建立新資料夾",
-      "locationDesc": "命名 Appflowy 資料夾",
+      "openFolder": "打開現有文件夾",
+      "openFolderDesc": "讀取和寫入到您現有的 Writely 文件夾",
+      "folderHintText": "文件夾名稱",
+      "location": "正在創建新文件夾",
+      "locationDesc": "為 Writely 數據文件夾選擇一個名稱",
       "browser": "瀏覽",
-      "create": "建立",
-      "folderPath": "儲存資料夾的路徑",
-      "locationCannotBeEmpty": "路徑不能爲空",
-      "pathCopiedSnackbar": "檔案儲存空間的路徑已被複製到剪貼簿！"
+      "create": "創建",
+      "set": "設置",
+      "folderPath": "存儲文件夾的路徑",
+      "locationCannotBeEmpty": "路徑不能為空",
+      "pathCopiedSnackbar": "文件存儲路徑已復製到剪貼板！",
+      "changeLocationTooltips": "更改數據目錄",
+      "change": "更改",
+      "openLocationTooltips": "打開另一個數據目錄",
+      "recoverLocationTooltips": "重置為 Writely 的默認數據目錄",
+      "exportFileSuccess": "成功導出文件！",
+      "exportFileFail": "導出文件失敗！",
+      "export": "導出"
     },
     "user": {
-      "name": "名稱",
+      "name": "姓名",
       "icon": "圖標",
-      "selectAnIcon": "選擇圖標",
-      "pleaseInputYourOpenAIKey": "請輸入你的 OpenAI 密鑰"
+      "selectAnIcon": "選擇一個圖標",
+      "xiaojunKey": "曉君 Key",
+      "pleaseInputYourOpenAIKey": "請輸入您的 曉君 密鑰"
     }
   },
   "grid": {
     "settings": {
-      "filter": "篩選",
+      "filter": "篩選器",
       "sort": "排序",
       "sortBy": "排序方式",
-      "Properties": "內容",
-      "group": "群組",
-      "addFilter": "增加",
+      "Properties": "屬性",
+      "group": "分組",
+      "addFilter": "添加篩選器",
       "deleteFilter": "刪除篩選器",
-      "filterBy": "以...篩選",
-      "typeAValue": "輸入一個值...",
-      "layout": "佈局"
+      "filterBy": "按...篩選",
+      "typeAValue": "輸入值...",
+      "layout": "佈局",
+      "databaseLayout": "佈局"
     },
     "textFilter": {
       "contains": "包含",
       "doesNotContain": "不包含",
       "endsWith": "以...結尾",
-      "startWith": "以...開頭",
+      "startWith": "以...開始",
       "is": "是",
       "isNot": "不是",
-      "isEmpty": "爲空",
-      "isNotEmpty": "不爲空",
+      "isEmpty": "為空",
+      "isNotEmpty": "不為空",
       "choicechipPrefix": {
         "isNot": "不是",
-        "startWith": "以...開頭",
+        "startWith": "以...開始",
         "endWith": "以...結尾",
-        "isEmpty": "爲空",
-        "isNotEmpty": "不爲空"
+        "isEmpty": "為空",
+        "isNotEmpty": "不為空"
       }
     },
     "checkboxFilter": {
-      "isChecked": "已核取",
-      "isUnchecked": "未核取",
+      "isChecked": "已選中",
+      "isUnchecked": "未選中",
       "choicechipPrefix": {
         "is": "是"
       }
@@ -252,159 +281,201 @@
     "singleSelectOptionFilter": {
       "is": "是",
       "isNot": "不是",
-      "isEmpty": "爲空",
-      "isNotEmpty": "不爲空"
+      "isEmpty": "為空",
+      "isNotEmpty": "不為空"
     },
     "multiSelectOptionFilter": {
       "contains": "包含",
       "doesNotContain": "不包含",
-      "isEmpty": "爲空",
-      "isNotEmpty": "不爲空"
+      "isEmpty": "為空",
+      "isNotEmpty": "不為空"
     },
     "field": {
       "hide": "隱藏",
-      "insertLeft": "插入左方欄",
-      "insertRight": "插入右方欄",
+      "insertLeft": "向左插入",
+      "insertRight": "向右插入",
       "duplicate": "複製",
       "delete": "刪除",
-      "textFieldName": "文字",
-      "checkboxFieldName": "核取方塊",
+      "textFieldName": "文本",
+      "checkboxFieldName": "複選框",
       "dateFieldName": "日期",
+      "updatedAtFieldName": "最後修改時間",
+      "createdAtFieldName": "創建時間",
       "numberFieldName": "數字",
       "singleSelectFieldName": "單選",
       "multiSelectFieldName": "多選",
       "urlFieldName": "網址",
-      "checklistFieldName": "核取列表",
+      "checklistFieldName": "清單",
       "numberFormat": "數字格式",
       "dateFormat": "日期格式",
       "includeTime": "包含時間",
-      "dateFormatFriendly": "月 日, 年",
+      "dateFormatFriendly": "年月日",
       "dateFormatISO": "年-月-日",
       "dateFormatLocal": "月/日/年",
       "dateFormatUS": "年/月/日",
+      "dateFormatDayMonthYear": "日/月/年",
       "timeFormat": "時間格式",
       "invalidTimeFormat": "格式無效",
-      "timeFormatTwelveHour": "12 小時",
-      "timeFormatTwentyFourHour": "24 小時",
-      "addSelectOption": "新增選項",
+      "timeFormatTwelveHour": "12小時",
+      "timeFormatTwentyFourHour": "24小時",
+      "addSelectOption": "添加選項",
       "optionTitle": "選項",
-      "addOption": "新增選項",
-      "editProperty": "編輯內容",
-      "newProperty": "新欄位",
-      "deleteFieldPromptMessage": "你確定嗎？這個內容將被刪除"
+      "addOption": "添加選項",
+      "editProperty": "編輯屬性",
+      "newProperty": "新屬性",
+      "deleteFieldPromptMessage": "確定嗎？此屬性將被刪除"
     },
     "sort": {
-      "ascending": "升冪排序",
-      "descending": "降冪排序",
+      "ascending": "升序",
+      "descending": "降序",
       "deleteSort": "刪除排序",
-      "addSort": "新增排序"
+      "addSort": "添加排序"
     },
     "row": {
       "duplicate": "複製",
       "delete": "刪除",
       "textPlaceholder": "空",
-      "copyProperty": "已將內容複製至剪貼簿",
-      "count": "Count",
-      "newRow": "新列表"
+      "copyProperty": "已復制屬性到剪貼板",
+      "count": "數量",
+      "newRow": "新行",
+      "action": "操作"
     },
     "selectOption": {
-      "create": "建立",
+      "create": "創建",
       "purpleColor": "紫色",
       "pinkColor": "粉色",
-      "lightPinkColor": "淡粉色",
-      "orangeColor": "橘色",
+      "lightPinkColor": "淺粉色",
+      "orangeColor": "橙色",
       "yellowColor": "黃色",
-      "limeColor": "萊姆色",
+      "limeColor": "綠黃色",
       "greenColor": "綠色",
-      "aquaColor": "水藍色",
+      "aquaColor": "青色",
       "blueColor": "藍色",
       "deleteTag": "刪除標籤",
       "colorPanelTitle": "顏色",
-      "panelTitle": "搜尋或建立選項",
-      "searchOption": "搜尋選項"
+      "panelTitle": "選擇選項或創建選項",
+      "searchOption": "搜索選項"
     },
     "checklist": {
-      "panelTitle": "新增物件"
+      "panelTitle": "添加項目"
     },
-    "menuName": "網格"
+    "menuName": "網格",
+    "referencedGridPrefix": "查看"
   },
   "document": {
-    "menuName": "檔案",
+    "menuName": "文檔",
     "date": {
-      "timeHintTextInTwelveHour": "01:00 PM",
+      "timeHintTextInTwelveHour": "下午01:00",
       "timeHintTextInTwentyFourHour": "13:00"
     },
     "slashMenu": {
       "board": {
-        "selectABoardToLinkTo": "選擇要連結的看板",
-        "createANewBoard": "建立新的看板"
+        "selectABoardToLinkTo": "選擇要鏈接的看板",
+        "createANewBoard": "創建新看板"
       },
       "grid": {
-        "selectAGridToLinkTo": "選擇要連結的網格",
-        "createANewGrid": "建立新網格"
+        "selectAGridToLinkTo": "選擇要鏈接的網格",
+        "createANewGrid": "創建新網格"
+      },
+      "calendar": {
+        "selectACalendarToLinkTo": "選擇要鏈接的日曆",
+        "createANewCalendar": "創建新日曆"
       }
     },
     "plugins": {
-      "referencedBoard": "已參照的看板",
-      "referencedGrid": "已參照的網格",
-      "autoGeneratorMenuItemName": "OpenAI 寫手",
-      "autoGeneratorTitleName": "OpenAI: 叫人工智慧寫下任何事情...",
-      "autoGeneratorLearnMore": "Learn more",
-      "autoGeneratorGenerate": "產生",
-      "autoGeneratorHintText": "問 OpenAI ...",
-      "autoGeneratorCantGetOpenAIKey": "無法取得 OpenAI 密鑰",
-      "smartEdit": "人工智慧助理",
+      "referencedBoard": "引用的看板",
+      "referencedGrid": "引用的網格",
+      "referencedCalendar": "引用的日曆",
+      "autoGeneratorMenuItemName": "OpenAI Writer",
+      "autoGeneratorTitleName": "OpenAI: Ask AI to write anything...",
+      "autoGeneratorLearnMore": "了解更多",
+      "autoGeneratorGenerate": "生成",
+      "autoGeneratorHintText": "詢問 OpenAI ...",
+      "autoGeneratorCantGetOpenAIKey": "無法獲取OpenAI密鑰",
+      "autoGeneratorRewrite": "重寫",
+      "smartEdit": "AI助手",
       "openAI": "OpenAI",
       "smartEditFixSpelling": "修正拼寫",
-      "warning": "⚠️ AI 的回答可能不精確或是存在誤導",
-      "smartEditSummarize": "總結",
-      "smartEditCouldNotFetchResult": "無法取得 OpenAI 的結果",
-      "smartEditCouldNotFetchKey": "無法取得 OpenAI 密鑰",
-      "smartEditDisabled": "在設定連結 OpenAI ",
-      "discardResponse": "你確定放棄人工智慧的回覆？",
+      "warning": "⚠️ AI回應可能不准確或誤導。",
+      "smartEditSummarize": "概括",
+      "smartEditImproveWriting": "改進寫作",
+      "smartEditMakeLonger": "加長",
+      "smartEditCouldNotFetchResult": "無法從OpenAI獲取結果",
+      "smartEditCouldNotFetchKey": "無法獲取OpenAI密鑰",
+      "smartEditDisabled": "在設置中連接OpenAI",
+      "discardResponse": "是否要放棄AI響應？",
       "cover": {
-        "changeCover": "更換封面",
+        "changeCover": "更改封面",
         "colors": "顏色",
         "images": "圖片",
-        "abstract": "摘要",
-        "addCover": "新增封面",
-        "addLocalImage": "新增本機圖片",
+        "clearAll": "清除全部",
+        "abstract": "抽象",
+        "addCover": "添加封面",
+        "addLocalImage": "添加本地圖片",
         "invalidImageUrl": "無效的圖片網址",
-        "failedToAddImageToGallery": "新增圖片到圖庫失敗",
+        "failedToAddImageToGallery": "添加圖庫失敗",
         "enterImageUrl": "輸入圖片網址",
-        "add": "Add",
-        "back": "Back",
-        "saveToGallery": "儲存到",
-        "removeIcon": "移除圖標",
-        "pasteImageUrl": "複製圖片網址",
+        "add": "添加",
+        "back": "返回",
+        "saveToGallery": "保存到圖庫",
+        "removeIcon": "刪除圖標",
+        "pasteImageUrl": "粘貼圖片網址",
         "or": "或",
-        "pickFromFiles": "挑選檔案",
-        "couldNotFetchImage": "無法截取圖片",
-        "imageSavingFailed": "圖片儲存失敗",
-        "addIcon": "新增圖標"
+        "pickFromFiles": "從文件中選擇",
+        "couldNotFetchImage": "無法獲取圖片",
+        "imageSavingFailed": "圖像保存失敗",
+        "addIcon": "添加圖標",
+        "coverRemoveAlert": "刪除後將從封面中刪除。",
+        "alertDialogConfirmation": "確定要繼續嗎？"
+      },
+      "mathEquation": {
+        "addMathEquation": "添加數學方程",
+        "editMathEquation": "編輯數學方程"
+      },
+      "optionAction": {
+        "click": "點擊",
+        "addBelow":" 在下面添加",
+        "toOpenMenu": " 打開菜單",
+        "delete": "刪除",
+        "duplicate": "複製",
+        "turnInto": "轉換為",
+        "moveUp": "向上移動",
+        "moveDown": "向下移動",
+        "color": "顏色",
+        "align": "對齊方式",
+        "left": "左對齊",
+        "center": "居中對齊",
+        "right": "右對齊",
+        "defaultColor": "默認"
       }
     }
   },
   "board": {
     "column": {
-      "create_new_card": "建立"
+      "create_new_card": "新建"
     },
-    "menuName": "看板"
+    "menuName": "看板",
+    "referencedBoardPrefix": "查看"
   },
   "calendar": {
     "menuName": "日曆",
-    "defaultNewCalendarTitle": "未命名的",
+    "defaultNewCalendarTitle": "無標題",
     "navigation": {
       "today": "今天",
-      "jumpToday": "跳至今天",
+      "jumpToday": "跳轉到今天",
       "previousMonth": "上個月",
       "nextMonth": "下個月"
     },
     "settings": {
-      "showWeekNumbers": "顯示星期",
+      "showWeekNumbers": "顯示週數",
       "showWeekends": "顯示週末",
-      "firstDayOfWeek": "一週的第一天",
-      "layoutDateField": "排列方式"
-    }
+      "firstDayOfWeek": "週起始於",
+      "layoutDateField": "按日期佈局",
+      "noDateTitle": "無日期",
+      "noDateHint": "未安排的事件將顯示在此處",
+      "clickToAdd": "單擊以添加到日曆",
+      "name": "日曆佈局"
+    },
+    "referencedCalendarPrefix": "查看"
   }
 }

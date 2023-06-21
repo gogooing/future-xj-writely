@@ -1,5 +1,5 @@
 {
-  "appName": "AppFlowy",
+  "appName": "Writely",
   "defaultUsername": "Eu",
   "welcomeText": "Bem-vindo ao @:appName",
   "githubStarText": "Dar uma estrela no Github",
@@ -181,7 +181,7 @@
     "files": {
       "defaultLocation": "Onde os seus dados ficam armazenados",
       "doubleTapToCopy": "Clique duas vezes para copiar o caminho",
-      "restoreLocation": "Restaurar para o caminho padrão do AppFlowy",
+      "restoreLocation": "Restaurar para o caminho padrão do Writely",
       "customizeLocation": "Abrir outra pasta",
       "restartApp": "Reinicie o aplicativo para que as alterações entrem em vigor.",
       "exportDatabase": "Exportar banco de dados",
@@ -190,10 +190,10 @@
       "createNewFolderDesc": "Diga-nos onde pretende armazenar os seus dados ...",
       "open": "Abrir",
       "openFolder": "Abra uma pasta existente",
-      "openFolderDesc": "Gravar na pasta AppFlowy existente ...",
+      "openFolderDesc": "Gravar na pasta Writely existente ...",
       "folderHintText": "nome da pasta",
       "location": "Criando nova pasta",
-      "locationDesc": "Escolha um nome para sua pasta de dados do AppFlowy",
+      "locationDesc": "Escolha um nome para sua pasta de dados do Writely",
       "browser": "Navegar",
       "create": "Criar",
       "folderPath": "Caminho para armazenar sua pasta",

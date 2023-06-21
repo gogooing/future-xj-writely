@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.appflowy.AppFlowy</id>
+  <id>com.futurenav.AppWritely</id>
   
   <name>AppFlowy</name>
   <summary>Open Source  Notion Alternative</summary>
@@ -29,7 +29,7 @@
     </p>
   </description>
   
-  <launchable type="desktop-id">io.appflowy.AppFlowy.desktop</launchable>
+  <launchable type="desktop-id">com.futurenav.AppWritely.desktop</launchable>
   <screenshots>
     <screenshot type="default">
       <image>https://github.com/AppFlowy-IO/appflowy/raw/main/doc/imgs/welcome.png</image>

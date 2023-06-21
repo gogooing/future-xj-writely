@@ -14,7 +14,7 @@ import 'database_row_test.dart' as database_row_test;
 import 'database_setting_test.dart' as database_setting_test;
 import 'database_filter_test.dart' as database_filter_test;
 
-/// The main task runner for all integration tests in AppFlowy.
+/// The main task runner for all integration tests in Writely.
 ///
 /// Having a single entrypoint for integration tests is necessary due to an
 /// [issue caused by switching files with integration testing](https://github.com/flutter/flutter/issues/101031).

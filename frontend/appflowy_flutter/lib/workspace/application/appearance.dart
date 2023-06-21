@@ -15,7 +15,7 @@ part 'appearance.freezed.dart';
 
 const _white = Color(0xFFFFFFFF);
 
-/// [AppearanceSettingsCubit] is used to modify the appearance of AppFlowy.
+/// [AppearanceSettingsCubit] is used to modify the appearance of Writely.
 /// It includes the [AppTheme], [ThemeMode], [TextStyles] and [Locale].
 class AppearanceSettingsCubit extends Cubit<AppearanceSettingsState> {
   final AppearanceSettingsPB _setting;

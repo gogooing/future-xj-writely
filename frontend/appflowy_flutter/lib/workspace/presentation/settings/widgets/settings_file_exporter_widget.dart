@@ -228,7 +228,7 @@ class _ExpandedListState extends State<_ExpandedList> {
   }
 }
 
-extension AppFlowy on dartz.Either {
+extension Writely on dartz.Either {
   T? getLeftOrNull<T>() {
     if (isLeft()) {
       final result = fold<T?>((l) => l, (r) => null);

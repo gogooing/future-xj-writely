@@ -9,7 +9,7 @@ import 'util/util.dart';
 ///
 /// To create another integration test with a preconfigured workspace.
 /// Use the following steps.
-/// 1. Create a new workspace from the AppFlowy launch screen.
+/// 1. Create a new workspace from the Writely launch screen.
 /// 2. Modify the workspace until it is suitable as the starting point for
 ///    the integration test you need to land.
 /// 3. Use a zip utility program to zip the workspace folder that you created.

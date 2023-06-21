@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=AppFlowy
-Icon=io.appflowy.AppFlowy
+Icon=com.futurenav.AppWritely
 Exec=env GDK_GL=gles AppFlowy %U
 Categories=Network;Productivity;
 Keywords=Notes

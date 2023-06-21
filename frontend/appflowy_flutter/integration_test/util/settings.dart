@@ -29,7 +29,7 @@ extension AppFlowySettings on WidgetTester {
     return;
   }
 
-  /// Restore the AppFlowy data storage location
+  /// Restore the Writely data storage location
   Future<void> restoreLocation() async {
     final button =
         find.byTooltip(LocaleKeys.settings_files_recoverLocationTooltips.tr());
