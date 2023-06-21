@@ -107,7 +107,7 @@ jobs:
           fi
         shell: bash
 
-      - name: Run AppFlowy tests
+      - name: Run Writely tests
         working-directory: frontend/appflowy_flutter
         run: |
           if [ "$RUNNER_OS" == "Linux" ]; then

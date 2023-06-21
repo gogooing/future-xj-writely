@@ -105,7 +105,7 @@ jobs:
           dart pub global activate protoc_plugin 20.0.1
         shell: bash
 
-      - name: Build AppFlowy
+      - name: Build Writely
         working-directory: frontend
         run: |
           cargo make --profile ${{ matrix.flutter_profile }} appflowy-dev

@@ -480,7 +480,7 @@
     "referencedCalendarPrefix": "View of"
   },
   "errorDialog": {
-    "title": "AppFlowy Error",
+    "title": "Writely Error",
     "howToFixFallback": "We're sorry for the inconvenience! Submit an issue on our GitHub page that describes your error.",
     "github": "View on GitHub"
   }

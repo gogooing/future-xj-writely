@@ -168,7 +168,7 @@ jobs:
           cargo install --force cargo-make
           cargo install --force duckscript_cli
 
-      - name: Build AppFlowy
+      - name: Build Writely
         working-directory: frontend
         run: |
           flutter config --enable-macos-desktop
@@ -179,18 +179,18 @@ jobs:
           brew install create-dmg
           create-dmg \
           --volname ${{ env.MACOS_DMG_NAME }} \
-          --hide-extension "AppFlowy.app" \
+          --hide-extension "Writely.app" \
           --background frontend/scripts/dmg_assets/AppFlowyInstallerBackground.jpg \
           --window-size 600 450 \
           --icon-size 94 \
-          --icon "AppFlowy.app" 141 249 \
+          --icon "Writely.app" 141 249 \
           --app-drop-link 458 249 \
           "${{ env.MACOS_APP_RELEASE_PATH }}/${{ env.MACOS_DMG_NAME }}.dmg" \
-          "${{ env.MACOS_APP_RELEASE_PATH }}/AppFlowy.app"
+          "${{ env.MACOS_APP_RELEASE_PATH }}/Writely.app"
 
       - name: Archive Asset
         working-directory: ${{ env.MACOS_APP_RELEASE_PATH }}
-        run: zip --symlinks -qr ${{ env.MACOS_X86_ZIP_NAME }} AppFlowy.app
+        run: zip --symlinks -qr ${{ env.MACOS_X86_ZIP_NAME }} Writely.app
 
       - name: Upload Asset
         uses: actions/upload-release-asset@v1
@@ -298,13 +298,13 @@ jobs:
       - name: Build Linux package
         working-directory: ${{ env.LINUX_APP_RELEASE_PATH }}
         run: |
-          mv AppFlowy package/opt/
+          mv Writely package/opt/
           cd package
 
           # Update Exec & icon path in desktop entry
-          grep -rl "\[CHANGE_THIS\]" ./opt/AppFlowy/appflowy.desktop.temp | xargs sed -i "s/\[CHANGE_THIS\]/\/opt/"
+          grep -rl "\[CHANGE_THIS\]" ./opt/Writely/appflowy.desktop.temp | xargs sed -i "s/\[CHANGE_THIS\]/\/opt/"
           # Add desktop entry in package
-          mv ./opt/AppFlowy/appflowy.desktop.temp ./usr/share/applications/appflowy.desktop
+          mv ./opt/Writely/appflowy.desktop.temp ./usr/share/applications/appflowy.desktop
 
           # Build
           cd ../ && dpkg-deb --build --root-owner-group -Z xz package ${{ env.LINUX_PACKAGE_NAME }}

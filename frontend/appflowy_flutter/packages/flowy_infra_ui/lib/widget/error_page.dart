@@ -6,10 +6,10 @@ import 'package:url_launcher/url_launcher.dart';
 
 class FlowyErrorPage extends StatelessWidget {
   factory FlowyErrorPage.error(
-      Error e, {
-        required String howToFix,
-        Key? key,
-      }) =>
+    Error e, {
+    required String howToFix,
+    Key? key,
+  }) =>
       FlowyErrorPage._(
         e.toString(),
         stackTrace: e.stackTrace?.toString(),
@@ -18,11 +18,11 @@ class FlowyErrorPage extends StatelessWidget {
       );
 
   factory FlowyErrorPage.message(
-      String message, {
-        required String howToFix,
-        String? stackTrace,
-        Key? key,
-      }) =>
+    String message, {
+    required String howToFix,
+    String? stackTrace,
+    Key? key,
+  }) =>
       FlowyErrorPage._(
         message,
         key: key,
@@ -31,11 +31,11 @@ class FlowyErrorPage extends StatelessWidget {
       );
 
   factory FlowyErrorPage.exception(
-      Exception e, {
-        required String howToFix,
-        String? stackTrace,
-        Key? key,
-      }) =>
+    Exception e, {
+    required String howToFix,
+    String? stackTrace,
+    Key? key,
+  }) =>
       FlowyErrorPage._(
         e.toString(),
         stackTrace: stackTrace,
@@ -44,11 +44,11 @@ class FlowyErrorPage extends StatelessWidget {
       );
 
   const FlowyErrorPage._(
-      this.message, {
-        required this.howToFix,
-        this.stackTrace,
-        super.key,
-      });
+    this.message, {
+    required this.howToFix,
+    this.stackTrace,
+    super.key,
+  });
 
   static const _titleFontSize = 24.0;
   static const _titleToMessagePadding = 8.0;
@@ -64,7 +64,7 @@ class FlowyErrorPage extends StatelessWidget {
       child: Column(
         children: [
           const FlowyText.medium(
-            "AppFlowy Error",
+            "Writely Error",
             fontSize: _titleFontSize,
           ),
           const SizedBox(
@@ -95,9 +95,9 @@ class FlowyErrorPage extends StatelessWidget {
 
 class StackTracePreview extends StatelessWidget {
   const StackTracePreview(
-      this.stackTrace, {
-        super.key,
-      });
+    this.stackTrace, {
+    super.key,
+  });
 
   final String stackTrace;
 
@@ -162,12 +162,12 @@ class GitHubRedirectButton extends StatelessWidget {
   static const _height = 32.0;
 
   Uri get _gitHubNewBugUri => Uri(
-    scheme: 'https',
-    host: 'github.com',
-    path: '/Writely-IO/AppFlowy/issues/new',
-    query:
-    'assignees=&labels=&projects=&template=bug_report.yaml&title=%5BBug%5D+',
-  );
+        scheme: 'https',
+        host: 'github.com',
+        path: '/gogooing/future-xj-writely/issues/new',
+        query:
+            'assignees=&labels=&projects=&template=bug_report.yaml&title=%5BBug%5D+',
+      );
 
   @override
   Widget build(BuildContext context) {
