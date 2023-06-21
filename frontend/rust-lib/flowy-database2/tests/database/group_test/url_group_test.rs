@@ -19,7 +19,7 @@ async fn group_group_by_url() {
       group_index: 1,
       row_count: 2,
     },
-    // https://github.com/AppFlowy-IO/AppFlowy
+    // https://github.com/gogooing/future-xj-writely
     AssertGroupRowCount {
       group_index: 2,
       row_count: 1,
@@ -47,7 +47,7 @@ async fn group_alter_url_to_another_group_url_test() {
       group_index: 1,
       row_count: 2,
     },
-    // https://github.com/AppFlowy-IO/AppFlowy
+    // https://github.com/gogooing/future-xj-writely
     AssertGroupRowCount {
       group_index: 2,
       row_count: 1,
@@ -87,7 +87,7 @@ async fn group_alter_url_to_new_url_test() {
       group_index: 1,
       row_count: 2,
     },
-    // https://github.com/AppFlowy-IO/AppFlowy
+    // https://github.com/gogooing/future-xj-writely
     AssertGroupRowCount {
       group_index: 2,
       row_count: 1,
@@ -119,7 +119,7 @@ async fn group_move_url_group_row_test() {
       group_index: 1,
       row_count: 2,
     },
-    // https://github.com/AppFlowy-IO/AppFlowy
+    // https://github.com/gogooing/future-xj-writely
     AssertGroupRowCount {
       group_index: 2,
       row_count: 1,
