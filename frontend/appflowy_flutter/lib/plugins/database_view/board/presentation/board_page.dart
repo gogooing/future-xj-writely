@@ -7,6 +7,7 @@ import 'package:appflowy/plugins/database_view/application/database_controller.d
 import 'package:appflowy/plugins/database_view/application/field/field_controller.dart';
 import 'package:appflowy/plugins/database_view/application/row/row_cache.dart';
 import 'package:appflowy/plugins/database_view/application/row/row_data_controller.dart';
+import 'package:appflowy/plugins/database_view/grid/presentation/layout/sizes.dart';
 import 'package:appflowy/plugins/database_view/tar_bar/tab_bar_view.dart';
 import 'package:appflowy/plugins/database_view/widgets/row/row_detail.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder2/view.pb.dart';
@@ -31,10 +32,10 @@ import 'toolbar/board_setting_bar.dart';
 class BoardPageTabBarBuilderImpl implements DatabaseTabBarItemBuilder {
   @override
   Widget content(
-      BuildContext context,
-      ViewPB view,
-      DatabaseController controller,
-      ) {
+    BuildContext context,
+    ViewPB view,
+    DatabaseController controller,
+  ) {
     return BoardPage(
       key: _makeValueKey(controller),
       view: view,
@@ -52,9 +53,9 @@ class BoardPageTabBarBuilderImpl implements DatabaseTabBarItemBuilder {
 
   @override
   Widget settingBarExtension(
-      BuildContext context,
-      DatabaseController controller,
-      ) {
+    BuildContext context,
+    DatabaseController controller,
+  ) {
     return SizedBox.fromSize();
   }
 
@@ -89,13 +90,13 @@ class BoardPage extends StatelessWidget {
         builder: (context, state) {
           return state.loadingState.map(
             loading: (_) =>
-            const Center(child: CircularProgressIndicator.adaptive()),
+                const Center(child: CircularProgressIndicator.adaptive()),
             finish: (result) {
               return result.successOrFail.fold(
-                    (_) => BoardContent(
+                (_) => BoardContent(
                   onEditStateChanged: onEditStateChanged,
                 ),
-                    (err) => FlowyErrorPage.message(err.toString(), howToFix: LocaleKeys.errorDialog_howToFixFallback.tr(),),
+                (err) => FlowyErrorPage.message(err.toString(), howToFix: LocaleKeys.errorDialog_howToFixFallback.tr(),),
               );
             },
           );
@@ -152,7 +153,7 @@ class _BoardContentState extends State<BoardContent> {
         buildWhen: (previous, current) => previous.groupIds != current.groupIds,
         builder: (context, state) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: GridSize.contentInsets,
             child: _buildBoard(context),
           );
         },
@@ -181,8 +182,8 @@ class _BoardContentState extends State<BoardContent> {
 
   void _handleEditStateChanged(BoardState state, BuildContext context) {
     state.editingRow.fold(
-          () => null,
-          (editingRow) {
+      () => null,
+      (editingRow) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           if (editingRow.index != null) {
           } else {
@@ -199,9 +200,9 @@ class _BoardContentState extends State<BoardContent> {
   }
 
   Widget _buildHeader(
-      BuildContext context,
-      AppFlowyGroupData groupData,
-      ) {
+    BuildContext context,
+    AppFlowyGroupData groupData,
+  ) {
     final boardCustomData = groupData.customData as GroupData;
     return AppFlowyGroupHeader(
       title: Flexible(
@@ -223,8 +224,8 @@ class _BoardContentState extends State<BoardContent> {
       ),
       onAddButtonClick: () {
         context.read<BoardBloc>().add(
-          BoardEvent.createHeaderRow(groupData.id),
-        );
+              BoardEvent.createHeaderRow(groupData.id),
+            );
       },
       height: 50,
       margin: config.headerPadding,
@@ -252,17 +253,17 @@ class _BoardContentState extends State<BoardContent> {
       margin: config.footerPadding,
       onAddButtonClick: () {
         context.read<BoardBloc>().add(
-          BoardEvent.createBottomRow(columnData.id),
-        );
+              BoardEvent.createBottomRow(columnData.id),
+            );
       },
     );
   }
 
   Widget _buildCard(
-      BuildContext context,
-      AppFlowyGroupData afGroupData,
-      AppFlowyGroupItem afGroupItem,
-      ) {
+    BuildContext context,
+    AppFlowyGroupData afGroupData,
+    AppFlowyGroupItem afGroupItem,
+  ) {
     final groupItem = afGroupItem as GroupItem;
     final groupData = afGroupData.customData as GroupData;
     final rowMeta = groupItem.row;
@@ -277,8 +278,8 @@ class _BoardContentState extends State<BoardContent> {
     final cellBuilder = CardCellBuilder<String>(cellCache);
     bool isEditing = false;
     context.read<BoardBloc>().state.editingRow.fold(
-          () => null,
-          (editingRow) {
+      () => null,
+      (editingRow) {
         isEditing = editingRow.row.id == groupItem.row.id;
       },
     );
@@ -307,11 +308,11 @@ class _BoardContentState extends State<BoardContent> {
         ),
         onStartEditing: () {
           context.read<BoardBloc>().add(
-            BoardEvent.startEditingRow(
-              groupData.group,
-              groupItem.row,
-            ),
-          );
+                BoardEvent.startEditingRow(
+                  groupData.group,
+                  groupItem.row,
+                ),
+              );
         },
         onEndEditing: () {
           context
@@ -336,13 +337,13 @@ class _BoardContentState extends State<BoardContent> {
   }
 
   void _openCard(
-      String viewId,
-      String groupId,
-      FieldController fieldController,
-      RowMetaPB rowMetaPB,
-      RowCache rowCache,
-      BuildContext context,
-      ) {
+    String viewId,
+    String groupId,
+    FieldController fieldController,
+    RowMetaPB rowMetaPB,
+    RowCache rowCache,
+    BuildContext context,
+  ) {
     final rowInfo = RowInfo(
       viewId: viewId,
       fields: UnmodifiableListView(fieldController.fieldInfos),

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:appflowy/generated/locale_keys.g.dart';
 import 'package:appflowy/plugins/database_view/application/row/row_service.dart';
 import 'package:appflowy/plugins/database_view/grid/presentation/widgets/toolbar/grid_setting_bar.dart';
@@ -45,10 +47,10 @@ class GridPageTabBarBuilderImpl implements DatabaseTabBarItemBuilder {
 
   @override
   Widget content(
-      BuildContext context,
-      ViewPB view,
-      DatabaseController controller,
-      ) {
+    BuildContext context,
+    ViewPB view,
+    DatabaseController controller,
+  ) {
     return GridPage(
       key: _makeValueKey(controller),
       view: view,
@@ -67,9 +69,9 @@ class GridPageTabBarBuilderImpl implements DatabaseTabBarItemBuilder {
 
   @override
   Widget settingBarExtension(
-      BuildContext context,
-      DatabaseController controller,
-      ) {
+    BuildContext context,
+    DatabaseController controller,
+  ) {
     return DatabaseViewSettingExtension(
       key: _makeValueKey(controller),
       viewId: controller.viewId,
@@ -120,12 +122,12 @@ class _GridPageState extends State<GridPage> {
         builder: (context, state) {
           return state.loadingState.map(
             loading: (_) =>
-            const Center(child: CircularProgressIndicator.adaptive()),
+                const Center(child: CircularProgressIndicator.adaptive()),
             finish: (result) => result.successOrFail.fold(
-                  (_) => GridShortcuts(
+              (_) => GridShortcuts(
                 child: GridPageContent(view: widget.view),
               ),
-                  (err) => FlowyErrorPage.message(
+              (err) => FlowyErrorPage.message(
                 err.toString(),
                 howToFix: LocaleKeys.errorDialog_howToFixFallback.tr(),
               ),
@@ -201,7 +203,7 @@ class _GridHeader extends StatelessWidget {
         return GridHeaderSliverAdaptor(
           viewId: state.viewId,
           fieldController:
-          context.read<GridBloc>().databaseController.fieldController,
+              context.read<GridBloc>().databaseController.fieldController,
           anchorScrollController: headerScrollController,
         );
       },
@@ -241,41 +243,7 @@ class _GridRows extends StatelessWidget {
             );
             return ScrollConfiguration(
               behavior: behavior,
-              child: ReorderableListView.builder(
-                /// TODO(Xazin): Resolve inconsistent scrollbar behavior
-                ///  This is a workaround related to
-                ///  https://github.com/flutter/flutter/issues/25652
-                cacheExtent: 5000,
-                scrollController: scrollController.verticalController,
-                buildDefaultDragHandles: false,
-                proxyDecorator: (child, index, animation) => Material(
-                  color: Colors.white.withOpacity(.1),
-                  child: Opacity(opacity: .5, child: child),
-                ),
-                onReorder: (fromIndex, newIndex) {
-                  final toIndex =
-                  newIndex > fromIndex ? newIndex - 1 : newIndex;
-                  if (fromIndex == toIndex) {
-                    return;
-                  }
-                  context
-                      .read<GridBloc>()
-                      .add(GridEvent.moveRow(fromIndex, toIndex));
-                },
-                itemCount: rowInfos.length + 1, // the extra item is the footer
-                itemBuilder: (context, index) {
-                  if (index < rowInfos.length) {
-                    final rowInfo = rowInfos[index];
-                    return _renderRow(
-                      context,
-                      rowInfo.rowId,
-                      isDraggable: state.reorderable,
-                      index: index,
-                    );
-                  }
-                  return const GridRowBottomBar(key: Key('gridFooter'));
-                },
-              ),
+              child: _renderList(context, state, rowInfos),
             );
           },
         ),
@@ -283,13 +251,73 @@ class _GridRows extends StatelessWidget {
     );
   }
 
+  Widget _renderList(
+    BuildContext context,
+    GridState state,
+    List<RowInfo> rowInfos,
+  ) {
+    if (Platform.isWindows) {
+      // Workaround: On Windows, the focusing of the text cell is not working
+      // properly when the list is reorderable. So using the ListView instead.
+      return ListView.builder(
+        controller: scrollController.verticalController,
+        itemCount: rowInfos.length + 1, // the extra item is the footer
+        itemBuilder: (context, index) {
+          if (index < rowInfos.length) {
+            final rowInfo = rowInfos[index];
+            return _renderRow(
+              context,
+              rowInfo.rowId,
+              isDraggable: false,
+              index: index,
+            );
+          }
+          return const GridRowBottomBar(key: Key('gridFooter'));
+        },
+      );
+    } else {
+      return ReorderableListView.builder(
+        /// TODO(Xazin): Resolve inconsistent scrollbar behavior
+        ///  This is a workaround related to
+        ///  https://github.com/flutter/flutter/issues/25652
+        cacheExtent: 5000,
+        scrollController: scrollController.verticalController,
+        buildDefaultDragHandles: false,
+        proxyDecorator: (child, index, animation) => Material(
+          color: Colors.white.withOpacity(.1),
+          child: Opacity(opacity: .5, child: child),
+        ),
+        onReorder: (fromIndex, newIndex) {
+          final toIndex = newIndex > fromIndex ? newIndex - 1 : newIndex;
+          if (fromIndex == toIndex) {
+            return;
+          }
+          context.read<GridBloc>().add(GridEvent.moveRow(fromIndex, toIndex));
+        },
+        itemCount: rowInfos.length + 1, // the extra item is the footer
+        itemBuilder: (context, index) {
+          if (index < rowInfos.length) {
+            final rowInfo = rowInfos[index];
+            return _renderRow(
+              context,
+              rowInfo.rowId,
+              isDraggable: state.reorderable,
+              index: index,
+            );
+          }
+          return const GridRowBottomBar(key: Key('gridFooter'));
+        },
+      );
+    }
+  }
+
   Widget _renderRow(
-      BuildContext context,
-      RowId rowId, {
-        int? index,
-        required bool isDraggable,
-        Animation<double>? animation,
-      }) {
+    BuildContext context,
+    RowId rowId, {
+    int? index,
+    required bool isDraggable,
+    Animation<double>? animation,
+  }) {
     final rowCache = context.read<GridBloc>().getRowCache(rowId);
     final rowMeta = rowCache.getRow(rowId)?.rowMeta;
 
@@ -334,12 +362,12 @@ class _GridRows extends StatelessWidget {
   }
 
   void _openRowDetailPage(
-      BuildContext context,
-      RowId rowId,
-      FieldController fieldController,
-      RowCache rowCache,
-      GridCellBuilder cellBuilder,
-      ) {
+    BuildContext context,
+    RowId rowId,
+    FieldController fieldController,
+    RowCache rowCache,
+    GridCellBuilder cellBuilder,
+  ) {
     final rowMeta = rowCache.getRow(rowId)?.rowMeta;
     // Most of the cases, the rowMeta should not be null.
     if (rowMeta != null) {
@@ -403,7 +431,7 @@ class _GridFooter extends StatelessWidget {
       selector: (state) => state.rowCount,
       builder: (context, rowCount) {
         return Padding(
-          padding: GridSize.footerContentInsets,
+          padding: GridSize.contentInsets,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [

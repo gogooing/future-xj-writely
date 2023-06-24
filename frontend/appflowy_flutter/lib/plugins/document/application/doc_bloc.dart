@@ -9,7 +9,7 @@ import 'package:appflowy/plugins/document/application/doc_service.dart';
 import 'package:appflowy_backend/protobuf/flowy-document2/protobuf.dart';
 import 'package:appflowy_backend/protobuf/flowy-user/user_profile.pbserver.dart';
 import 'package:appflowy_editor/appflowy_editor.dart'
-    show EditorState, LogLevel;
+    show EditorState, LogLevel, TransactionTime;
 import 'package:appflowy_backend/protobuf/flowy-error/errors.pb.dart';
 import 'package:appflowy_backend/protobuf/flowy-folder2/view.pb.dart';
 import 'package:flutter/foundation.dart';
@@ -57,9 +57,9 @@ class DocumentBloc extends Bloc<DocumentEvent, DocumentState> {
   }
 
   Future<void> _onDocumentEvent(
-    DocumentEvent event,
-    Emitter<DocumentState> emit,
-  ) async {
+      DocumentEvent event,
+      Emitter<DocumentState> emit,
+      ) async {
     await event.map(
       initial: (Initial value) async {
         final state = await _fetchDocumentState();
@@ -124,7 +124,7 @@ class DocumentBloc extends Bloc<DocumentEvent, DocumentState> {
   /// Fetch document
   Future<DocumentState> _fetchDocumentState() async {
     final result = await UserBackendService.getCurrentUserProfile().then(
-      (value) async => value.andThen(
+          (value) async => value.andThen(
         // open the document
         await _documentService.openDocument(view: view),
       ),
@@ -149,8 +149,12 @@ class DocumentBloc extends Bloc<DocumentEvent, DocumentState> {
     this.editorState = editorState;
 
     // subscribe to the document change from the editor
-    _subscription = editorState.transactionStream.listen((transaction) async {
-      await _transactionAdapter.apply(transaction, editorState);
+    _subscription = editorState.transactionStream.listen((event) async {
+      final time = event.$1;
+      if (time != TransactionTime.before) {
+        return;
+      }
+      await _transactionAdapter.apply(event.$2, editorState);
     });
 
     // output the log from the editor when debug mode
@@ -183,17 +187,17 @@ class DocumentState with _$DocumentState {
   }) = _DocumentState;
 
   factory DocumentState.initial() => const DocumentState(
-        loadingState: _Loading(),
-        isDeleted: false,
-        forceClose: false,
-        userProfilePB: null,
-      );
+    loadingState: _Loading(),
+    isDeleted: false,
+    forceClose: false,
+    userProfilePB: null,
+  );
 }
 
 @freezed
 class DocumentLoadingState with _$DocumentLoadingState {
   const factory DocumentLoadingState.loading() = _Loading;
   const factory DocumentLoadingState.finish(
-    Either<FlowyError, DocumentDataPB> successOrFail,
-  ) = _Finish;
+      Either<FlowyError, DocumentDataPB> successOrFail,
+      ) = _Finish;
 }

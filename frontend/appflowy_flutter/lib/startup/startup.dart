@@ -20,19 +20,19 @@ abstract class EntryPoint {
 
 class FlowyRunner {
   static Future<void> run(
-    EntryPoint f,
-    IntegrationMode mode, {
-    LaunchConfiguration config = const LaunchConfiguration(
-      autoRegistrationSupported: false,
-    ),
-  }) async {
+      EntryPoint f,
+      IntegrationMode mode, {
+        LaunchConfiguration config = const LaunchConfiguration(
+          autoRegistrationSupported: false,
+        ),
+      }) async {
     // Clear all the states in case of rebuilding.
     await getIt.reset();
 
     // Specify the env
     initGetIt(getIt, mode, f, config);
 
-    final directory = await getIt<LocalFileStorage>()
+    final directory = await getIt<ApplicationDataStorage>()
         .getPath()
         .then((value) => Directory(value));
 
@@ -74,17 +74,17 @@ class FlowyRunner {
 }
 
 Future<void> initGetIt(
-  GetIt getIt,
-  IntegrationMode env,
-  EntryPoint f,
-  LaunchConfiguration config,
-) async {
+    GetIt getIt,
+    IntegrationMode env,
+    EntryPoint f,
+    LaunchConfiguration config,
+    ) async {
   getIt.registerFactory<EntryPoint>(() => f);
   getIt.registerLazySingleton<FlowySDK>(() {
     return FlowySDK();
   });
   getIt.registerLazySingleton<AppLauncher>(
-    () => AppLauncher(
+        () => AppLauncher(
       context: LaunchContext(
         getIt,
         env,

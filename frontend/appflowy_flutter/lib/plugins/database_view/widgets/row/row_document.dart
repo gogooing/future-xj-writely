@@ -29,8 +29,8 @@ class RowDocument extends StatelessWidget {
         viewId: viewId,
         rowId: rowId,
       )..add(
-        const RowDocumentEvent.initial(),
-      ),
+          const RowDocumentEvent.initial(),
+        ),
       child: BlocBuilder<RowDocumentBloc, RowDocumentState>(
         builder: (context, state) {
           return state.loadingState.when(
@@ -97,11 +97,11 @@ class _RowEditorState extends State<RowEditor> {
             ),
             finish: (result) {
               return result.fold(
-                    (error) => FlowyErrorPage.message(
+                (error) => FlowyErrorPage.message(
                   error.toString(),
                   howToFix: LocaleKeys.errorDialog_howToFixFallback.tr(),
                 ),
-                    (_) {
+                (_) {
                   final editorState = documentBloc.editorState;
                   if (editorState == null) {
                     return const SizedBox.shrink();

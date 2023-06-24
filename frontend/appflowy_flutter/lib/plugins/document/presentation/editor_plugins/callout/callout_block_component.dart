@@ -83,9 +83,9 @@ class CalloutBlockComponentBuilder extends BlockComponentBuilder {
   @override
   bool validate(Node node) =>
       node.delta != null &&
-      node.children.isEmpty &&
-      node.attributes[CalloutBlockKeys.icon] is String &&
-      node.attributes[CalloutBlockKeys.backgroundColor] is String;
+          node.children.isEmpty &&
+          node.attributes[CalloutBlockKeys.icon] is String &&
+          node.attributes[CalloutBlockKeys.backgroundColor] is String;
 }
 
 // the main widget for rendering the callout block
@@ -123,7 +123,7 @@ class _CalloutBlockComponentWidgetState
   // get the background color of the note block from the node's attributes
   Color get backgroundColor {
     final colorString =
-        node.attributes[CalloutBlockKeys.backgroundColor] as String?;
+    node.attributes[CalloutBlockKeys.backgroundColor] as String?;
     if (colorString == null) {
       return Colors.transparent;
     }
@@ -150,7 +150,11 @@ class _CalloutBlockComponentWidgetState
         children: [
           // the emoji picker button for the note
           Padding(
-            padding: const EdgeInsets.all(2.0),
+            padding: const EdgeInsets.only(
+              top: 6.0,
+              left: 2.0,
+              right: 2.0,
+            ),
             child: EmojiPickerButton(
               key: ValueKey(
                 emoji.toString(),

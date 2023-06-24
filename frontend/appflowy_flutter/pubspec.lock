@@ -43,18 +43,20 @@ packages:
   appflowy_board:
     dependency: "direct main"
     description:
-      name: appflowy_board
-      sha256: "1f8c945085435e756801d1e42fcf2838978da8993017902bb95929ece5dd69a9"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.1.0"
+      path: "."
+      ref: a183c57
+      resolved-ref: a183c57013071cb3192fcf3c9b1eeb89462179b7
+      url: "https://github.com/AppFlowy-IO/appflowy-board.git"
+    source: git
+    version: "0.0.9"
   appflowy_editor:
     dependency: "direct main"
     description:
-      name: appflowy_editor
-      sha256: "3ab567d8993ca06ea114c35bc38c07d2f0d7a5b00857f52d71fbe6a7f9d2ba7b"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
+      path: "."
+      ref: cd0f67a
+      resolved-ref: cd0f67a48e40188114800fae9a0f59cafe15b0f2
+      url: "https://github.com/AppFlowy-IO/appflowy-editor.git"
+    source: git
     version: "1.0.4"
   appflowy_popover:
     dependency: "direct main"

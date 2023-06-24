@@ -5,6 +5,7 @@ import 'package:appflowy/plugins/document/presentation/editor_plugins/database/r
 import 'package:appflowy/plugins/document/presentation/editor_plugins/plugins.dart';
 import 'package:appflowy/plugins/document/presentation/editor_style.dart';
 import 'package:appflowy_editor/appflowy_editor.dart';
+import 'package:flowy_infra_ui/flowy_infra_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,13 +35,11 @@ class AppFlowyEditorPage extends StatefulWidget {
 class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
   late final ScrollController effectiveScrollController;
 
-  // 编辑器命令快捷键事件
   final List<CommandShortcutEvent> commandShortcutEvents = [
     ...codeBlockCommands,
     ...standardCommandShortcutEvents,
   ];
 
-  // 工具栏项目
   final List<ToolbarItem> toolbarItems = [
     smartEditItem,
     paragraphItem,
@@ -54,7 +53,6 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
     highlightColorItem,
   ];
 
-  // /菜单项
   late final slashMenuItems = [
     inlineGridMenuItem(documentBloc),
     referencedGridMenuItem,
@@ -69,31 +67,27 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
     autoGeneratorMenuItem,
   ];
 
-  // 编辑器区块构建器
   late final Map<String, BlockComponentBuilder> blockComponentBuilders =
-      _customAppFlowyBlockComponentBuilders();
-
-  // 编辑器字符快捷键事件
+  _customAppFlowyBlockComponentBuilders();
   List<CharacterShortcutEvent> get characterShortcutEvents => [
-        // 代码块字符事件
-        ...codeBlockCharacterEvents,
+    // code block
+    ...codeBlockCharacterEvents,
 
-        // toggle list
-        // formatGreaterToToggleList,
+    // toggle list
+    // formatGreaterToToggleList,
 
-        // 自定义/命令
-        customSlashCommand(
-          slashMenuItems,
-          style: styleCustomizer.selectionMenuStyleBuilder(),
-        ),
+    // customize the slash menu command
+    customSlashCommand(
+      slashMenuItems,
+      style: styleCustomizer.selectionMenuStyleBuilder(),
+    ),
 
-        ...standardCharacterShortcutEvents
-          ..removeWhere(
+    ...standardCharacterShortcutEvents
+      ..removeWhere(
             (element) => element == slashCommand,
-          ), // 移除默认的/命令
-      ];
+      ), // remove the default slash command.
+  ];
 
-  // 显示/命令菜单
   late final showSlashMenu = customSlashCommand(
     slashMenuItems,
     shouldInsertSlash: false,
@@ -101,7 +95,6 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
   ).handler;
 
   EditorStyleCustomizer get styleCustomizer => widget.styleCustomizer;
-
   DocumentBloc get documentBloc => context.read<DocumentBloc>();
 
   @override
@@ -124,42 +117,42 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
   @override
   Widget build(BuildContext context) {
     final (bool autoFocus, Selection? selection) =
-        _computeAutoFocusParameters();
+    _computeAutoFocusParameters();
 
-    // 创建编辑器
     final editor = AppFlowyEditor.custom(
-      editorState: widget.editorState,
-      editable: true,
-      shrinkWrap: widget.shrinkWrap,
-      scrollController: effectiveScrollController,
-      // 设置自动聚焦参数
-      autoFocus: widget.autoFocus ?? autoFocus,
-      focusedSelection: selection,
-      // 设置主题
-      editorStyle: styleCustomizer.style(),
-      // 定制块构建器
-      blockComponentBuilders: blockComponentBuilders,
-      // 定制快捷键
-      characterShortcutEvents: characterShortcutEvents,
-      commandShortcutEvents: commandShortcutEvents,
-      header: widget.header,
+    editorState: widget.editorState,
+    editable: true,
+    shrinkWrap: widget.shrinkWrap,
+    scrollController: effectiveScrollController,
+    // setup the auto focus parameters
+    autoFocus: widget.autoFocus ?? autoFocus,
+    focusedSelection: selection,
+    // setup the theme
+    editorStyle: styleCustomizer.style(),
+    // customize the block builder
+    blockComponentBuilders: blockComponentBuilders,
+    // customize the shortcuts
+    characterShortcutEvents: characterShortcutEvents,
+    commandShortcutEvents: commandShortcutEvents,
+    header: widget.header,
+    footer: const VSpace(200),
     );
 
     // 创建浮动工具栏
     return Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(
-          maxWidth: double.infinity,
-          maxHeight: double.infinity,
-        ),
-        child: FloatingToolbar(
-          style: styleCustomizer.floatingToolbarStyleBuilder(),
-          items: toolbarItems,
-          editorState: widget.editorState,
-          scrollController: effectiveScrollController,
-          child: editor,
-        ),
-      ),
+    child: ConstrainedBox(
+    constraints: const BoxConstraints(
+    maxWidth: double.infinity,
+    maxHeight: double.infinity,
+    ),
+    child: FloatingToolbar(
+    style: styleCustomizer.floatingToolbarStyleBuilder(),
+    items: toolbarItems,
+    editorState: widget.editorState,
+    scrollController: effectiveScrollController,
+    child: editor,
+    ),
+    ),
     );
   }
 
@@ -174,7 +167,7 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
     ];
 
     final configuration = BlockComponentConfiguration(
-      padding: (_) => const EdgeInsets.symmetric(vertical: 4.0),
+      padding: (_) => const EdgeInsets.symmetric(vertical: 5.0),
     );
     final customBlockComponentBuilderMap = {
       PageBlockKeys.type: PageBlockComponentBuilder(),
@@ -205,7 +198,7 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
         configuration: configuration.copyWith(
           padding: (_) => const EdgeInsets.only(top: 12.0, bottom: 4.0),
           placeholderText: (node) =>
-              'Heading ${node.attributes[HeadingBlockKeys.level]}',
+          'Heading ${node.attributes[HeadingBlockKeys.level]}',
         ),
         textStyleBuilder: (level) => styleCustomizer.headingStyleBuilder(level),
       ),
@@ -224,7 +217,10 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
       CalloutBlockKeys.type: CalloutBlockComponentBuilder(
         configuration: configuration,
       ),
-      DividerBlockKeys.type: DividerBlockComponentBuilder(),
+      DividerBlockKeys.type: DividerBlockComponentBuilder(
+        configuration: configuration,
+        height: 28.0,
+      ),
       MathEquationBlockKeys.type: MathEquationBlockComponentBuilder(
         configuration: configuration.copyWith(
           padding: (_) => const EdgeInsets.symmetric(vertical: 20),
@@ -290,7 +286,13 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
       ];
 
       builder.showActions = (_) => true;
-      builder.actionBuilder = (context, state) => BlockActionList(
+      builder.actionBuilder = (context, state) {
+        final padding = context.node.type == HeadingBlockKeys.type
+            ? const EdgeInsets.only(top: 8.0)
+            : const EdgeInsets.all(0);
+        return Padding(
+          padding: padding,
+          child: BlockActionList(
             blockComponentContext: context,
             blockComponentState: state,
             editorState: widget.editorState,
@@ -298,8 +300,11 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
             showSlashMenu: () => showSlashMenu(
               widget.editorState,
             ),
-          );
+          ),
+        );
+      };
     }
+
     return builders;
   }
 

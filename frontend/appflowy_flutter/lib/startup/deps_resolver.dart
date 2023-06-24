@@ -51,16 +51,16 @@ void _resolveCommonService(GetIt getIt) async {
   // getIt.registerFactory<KeyValueStorage>(() => RustKeyValue());
   getIt.registerFactory<KeyValueStorage>(() => DartKeyValue());
   getIt.registerFactory<FilePickerService>(() => FilePicker());
-  getIt.registerFactory<LocalFileStorage>(() => LocalFileStorage());
+  getIt.registerFactory<ApplicationDataStorage>(() => ApplicationDataStorage());
 
   getIt.registerFactoryAsync<OpenAIRepository>(
-    () async {
+        () async {
       final result = await UserBackendService.getCurrentUserProfile();
       return result.fold(
-        (l) {
+            (l) {
           throw Exception('Failed to get user profile: ${l.msg}');
         },
-        (r) {
+            (r) {
           return HttpOpenAIRepository(
             client: http.Client(),
             apiKey: r.openaiKey,
@@ -78,10 +78,10 @@ void _resolveUserDeps(GetIt getIt) {
   getIt.registerFactory<AuthRouter>(() => AuthRouter());
 
   getIt.registerFactory<SignInBloc>(
-    () => SignInBloc(getIt<AuthService>()),
+        () => SignInBloc(getIt<AuthService>()),
   );
   getIt.registerFactory<SignUpBloc>(
-    () => SignUpBloc(getIt<AuthService>()),
+        () => SignUpBloc(getIt<AuthService>()),
   );
 
   getIt.registerFactory<SplashRoute>(() => SplashRoute());
@@ -96,14 +96,14 @@ void _resolveHomeDeps(GetIt getIt) {
   getIt.registerSingleton(MenuSharedState());
 
   getIt.registerFactoryParam<UserListener, UserProfilePB, void>(
-    (user, _) => UserListener(userProfile: user),
+        (user, _) => UserListener(userProfile: user),
   );
 
   //
   getIt.registerLazySingleton<HomeStackManager>(() => HomeStackManager());
 
   getIt.registerFactoryParam<WelcomeBloc, UserProfilePB, void>(
-    (user, _) => WelcomeBloc(
+        (user, _) => WelcomeBloc(
       userService: UserBackendService(userId: user.id),
       userWorkspaceListener: UserWorkspaceListener(userProfile: user),
     ),
@@ -111,66 +111,66 @@ void _resolveHomeDeps(GetIt getIt) {
 
   // share
   getIt.registerFactoryParam<DocShareBloc, ViewPB, void>(
-    (view, _) => DocShareBloc(view: view),
+        (view, _) => DocShareBloc(view: view),
   );
 }
 
 void _resolveFolderDeps(GetIt getIt) {
   //workspace
   getIt.registerFactoryParam<WorkspaceListener, UserProfilePB, String>(
-    (user, workspaceId) =>
+        (user, workspaceId) =>
         WorkspaceListener(user: user, workspaceId: workspaceId),
   );
 
   getIt.registerFactoryParam<ViewBloc, ViewPB, void>(
-    (view, _) => ViewBloc(
+        (view, _) => ViewBloc(
       view: view,
     ),
   );
 
   getIt.registerFactoryParam<MenuUserBloc, UserProfilePB, void>(
-    (user, _) => MenuUserBloc(user),
+        (user, _) => MenuUserBloc(user),
   );
 
   //Settings
   getIt.registerFactoryParam<SettingsDialogBloc, UserProfilePB, void>(
-    (user, _) => SettingsDialogBloc(user),
+        (user, _) => SettingsDialogBloc(user),
   );
 
   //User
   getIt.registerFactoryParam<SettingsUserViewBloc, UserProfilePB, void>(
-    (user, _) => SettingsUserViewBloc(user),
+        (user, _) => SettingsUserViewBloc(user),
   );
 
   // trash
   getIt.registerLazySingleton<TrashService>(() => TrashService());
   getIt.registerLazySingleton<TrashListener>(() => TrashListener());
   getIt.registerFactory<TrashBloc>(
-    () => TrashBloc(),
+        () => TrashBloc(),
   );
 }
 
 void _resolveDocDeps(GetIt getIt) {
 // Doc
   getIt.registerFactoryParam<DocumentBloc, ViewPB, void>(
-    (view, _) => DocumentBloc(view: view),
+        (view, _) => DocumentBloc(view: view),
   );
 }
 
 void _resolveGridDeps(GetIt getIt) {
   getIt.registerFactoryParam<GridHeaderBloc, String, FieldController>(
-    (viewId, fieldController) => GridHeaderBloc(
+        (viewId, fieldController) => GridHeaderBloc(
       viewId: viewId,
       fieldController: fieldController,
     ),
   );
 
   getIt.registerFactoryParam<FieldActionSheetBloc, FieldContext, void>(
-    (data, _) => FieldActionSheetBloc(fieldCellContext: data),
+        (data, _) => FieldActionSheetBloc(fieldCellContext: data),
   );
 
   getIt.registerFactoryParam<DatabasePropertyBloc, String, FieldController>(
-    (viewId, cache) =>
+        (viewId, cache) =>
         DatabasePropertyBloc(viewId: viewId, fieldController: cache),
   );
 }

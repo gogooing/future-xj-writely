@@ -23,7 +23,7 @@ class CoverImagePickerBloc
 
   CoverImagePickerBloc() : super(const CoverImagePickerState.initial()) {
     on<CoverImagePickerEvent>(
-      (event, emit) async {
+          (event, emit) async {
         await event.map(
           initialEvent: (InitialEvent initialEvent) {
             emit(const CoverImagePickerState.initial());
@@ -130,7 +130,7 @@ class CoverImagePickerBloc
   }
 
   Future<String> _coverPath() async {
-    final directory = await getIt<LocalFileStorage>().getPath();
+    final directory = await getIt<ApplicationDataStorage>().getPath();
     return Directory(p.join(directory, 'covers'))
         .create(recursive: true)
         .then((value) => value.path);
@@ -144,9 +144,9 @@ class CoverImagePickerBloc
   }
 
   String? _getExtension(
-    String path, {
-    bool fromNetwork = false,
-  }) {
+      String path, {
+        bool fromNetwork = false,
+      }) {
     String? ext;
     if (!fromNetwork) {
       final extension = p.extension(path);
@@ -195,8 +195,8 @@ class CoverImagePickerEvent with _$CoverImagePickerEvent {
   const factory CoverImagePickerEvent.pickFileImage() = PickFileImage;
   const factory CoverImagePickerEvent.deleteImage() = DeleteImage;
   const factory CoverImagePickerEvent.saveToGallery(
-    CoverImagePickerState previousState,
-  ) = SaveToGallery;
+      CoverImagePickerState previousState,
+      ) = SaveToGallery;
   const factory CoverImagePickerEvent.initialEvent() = InitialEvent;
 }
 
@@ -205,11 +205,11 @@ class CoverImagePickerState with _$CoverImagePickerState {
   const factory CoverImagePickerState.initial() = Initial;
   const factory CoverImagePickerState.loading() = Loading;
   const factory CoverImagePickerState.networkImage(
-    Either<String, FlowyError> successOrFail,
-  ) = NetworkImagePicked;
+      Either<String, FlowyError> successOrFail,
+      ) = NetworkImagePicked;
   const factory CoverImagePickerState.fileImage(String path) = FileImagePicked;
 
   const factory CoverImagePickerState.done(
-    Either<List<String>, FlowyError> successOrFail,
-  ) = Done;
+      Either<List<String>, FlowyError> successOrFail,
+      ) = Done;
 }
