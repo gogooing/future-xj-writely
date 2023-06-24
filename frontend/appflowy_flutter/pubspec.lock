@@ -51,10 +51,11 @@ packages:
   appflowy_editor:
     dependency: "direct main"
     description:
-      path: "packages/appflowy-editor"
-      relative: true
-    source: path
-    version: "1.0.3"
+      name: appflowy_editor
+      sha256: "3ab567d8993ca06ea114c35bc38c07d2f0d7a5b00857f52d71fbe6a7f9d2ba7b"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.4"
   appflowy_popover:
     dependency: "direct main"
     description:

@@ -8,16 +8,16 @@ import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-/// Wrapper for the appflowy editor.
+// AppFlowy编辑器页面的状态管理类
 class AppFlowyEditorPage extends StatefulWidget {
   const AppFlowyEditorPage({
     super.key,
-    required this.editorState,
-    this.header,
-    this.shrinkWrap = false,
-    this.scrollController,
-    this.autoFocus,
-    required this.styleCustomizer,
+    required this.editorState, // 编辑器的状态
+    this.header, // 页面的头部
+    this.shrinkWrap = false, // 是否自适应内容的长度
+    this.scrollController, // 滚动控制器
+    this.autoFocus, // 是否自动聚焦
+    required this.styleCustomizer, // 编辑器样式定制
   });
 
   final Widget? header;
@@ -34,11 +34,13 @@ class AppFlowyEditorPage extends StatefulWidget {
 class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
   late final ScrollController effectiveScrollController;
 
+  // 编辑器命令快捷键事件
   final List<CommandShortcutEvent> commandShortcutEvents = [
     ...codeBlockCommands,
     ...standardCommandShortcutEvents,
   ];
 
+  // 工具栏项目
   final List<ToolbarItem> toolbarItems = [
     smartEditItem,
     paragraphItem,
@@ -52,6 +54,7 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
     highlightColorItem,
   ];
 
+  // /菜单项
   late final slashMenuItems = [
     inlineGridMenuItem(documentBloc),
     referencedGridMenuItem,
@@ -66,16 +69,19 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
     autoGeneratorMenuItem,
   ];
 
+  // 编辑器区块构建器
   late final Map<String, BlockComponentBuilder> blockComponentBuilders =
       _customAppFlowyBlockComponentBuilders();
+
+  // 编辑器字符快捷键事件
   List<CharacterShortcutEvent> get characterShortcutEvents => [
-        // code block
+        // 代码块字符事件
         ...codeBlockCharacterEvents,
 
         // toggle list
         // formatGreaterToToggleList,
 
-        // customize the slash menu command
+        // 自定义/命令
         customSlashCommand(
           slashMenuItems,
           style: styleCustomizer.selectionMenuStyleBuilder(),
@@ -84,9 +90,10 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
         ...standardCharacterShortcutEvents
           ..removeWhere(
             (element) => element == slashCommand,
-          ), // remove the default slash command.
+          ), // 移除默认的/命令
       ];
 
+  // 显示/命令菜单
   late final showSlashMenu = customSlashCommand(
     slashMenuItems,
     shouldInsertSlash: false,
@@ -94,16 +101,19 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
   ).handler;
 
   EditorStyleCustomizer get styleCustomizer => widget.styleCustomizer;
+
   DocumentBloc get documentBloc => context.read<DocumentBloc>();
 
   @override
   void initState() {
     super.initState();
+    // 初始化滚动控制器
     effectiveScrollController = widget.scrollController ?? ScrollController();
   }
 
   @override
   void dispose() {
+    // 如果没有自定义滚动控制器，则销毁它
     if (widget.scrollController == null) {
       effectiveScrollController.dispose();
     }
@@ -116,24 +126,26 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
     final (bool autoFocus, Selection? selection) =
         _computeAutoFocusParameters();
 
+    // 创建编辑器
     final editor = AppFlowyEditor.custom(
       editorState: widget.editorState,
       editable: true,
       shrinkWrap: widget.shrinkWrap,
       scrollController: effectiveScrollController,
-      // setup the auto focus parameters
+      // 设置自动聚焦参数
       autoFocus: widget.autoFocus ?? autoFocus,
       focusedSelection: selection,
-      // setup the theme
+      // 设置主题
       editorStyle: styleCustomizer.style(),
-      // customize the block builder
+      // 定制块构建器
       blockComponentBuilders: blockComponentBuilders,
-      // customize the shortcuts
+      // 定制快捷键
       characterShortcutEvents: characterShortcutEvents,
       commandShortcutEvents: commandShortcutEvents,
       header: widget.header,
     );
 
+    // 创建浮动工具栏
     return Center(
       child: ConstrainedBox(
         constraints: const BoxConstraints(
@@ -151,6 +163,7 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
     );
   }
 
+  // 创建AppFlowy区块构建器
   Map<String, BlockComponentBuilder> _customAppFlowyBlockComponentBuilders() {
     final standardActions = [
       OptionAction.delete,
@@ -287,14 +300,16 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
             ),
           );
     }
-
     return builders;
   }
 
+  // 计算自动聚焦参数
   (bool, Selection?) _computeAutoFocusParameters() {
+    // 如果文档为空，则返回默认的自动聚焦参数
     if (widget.editorState.document.isEmpty) {
       return (true, Selection.collapse([0], 0));
     }
+    // 如果文档的所有元素都为空，则返回对第一个元素的聚焦
     final nodes = widget.editorState.document.root.children
         .where((element) => element.delta != null);
     final isAllEmpty =
@@ -302,6 +317,7 @@ class _AppFlowyEditorPageState extends State<AppFlowyEditorPage> {
     if (isAllEmpty) {
       return (true, Selection.collapse(nodes.first.path, 0));
     }
+    // 否则不自动聚焦
     return const (false, null);
   }
 }

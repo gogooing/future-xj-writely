@@ -15,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class TestFolder {
   /// Location / Path
 
-  /// Set a given Writely data storage location under test environment.
+  /// Set a given AppFlowy data storage location under test environment.
   ///
   /// To pass null means clear the location.
   ///
@@ -44,7 +44,7 @@ class TestFolder {
 
   /// Get default location under development environment.
   static Future<String> defaultDevelopmentLocation() async {
-    final dir = await appFlowyDocumentDirectory();
+    final dir = await appFlowyApplicationDataDirectory();
     return dir.path;
   }
 
@@ -64,12 +64,12 @@ extension AppFlowyTestBase on WidgetTester {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(const MethodChannel('hotkey_manager'),
             (MethodCall methodCall) async {
-      if (methodCall.method == 'unregisterAll') {
-        // do nothing
-      }
+          if (methodCall.method == 'unregisterAll') {
+            // do nothing
+          }
 
-      return;
-    });
+          return;
+        });
 
     WidgetsFlutterBinding.ensureInitialized();
     await FlowyRunner.run(FlowyApp(), IntegrationMode.integrationTest);
@@ -79,12 +79,12 @@ extension AppFlowyTestBase on WidgetTester {
   }
 
   Future<void> tapButton(
-    Finder finder, {
-    int? pointer,
-    int buttons = kPrimaryButton,
-    bool warnIfMissed = true,
-    int milliseconds = 500,
-  }) async {
+      Finder finder, {
+        int? pointer,
+        int buttons = kPrimaryButton,
+        bool warnIfMissed = true,
+        int milliseconds = 500,
+      }) async {
     await tap(
       finder,
       buttons: buttons,
@@ -95,9 +95,9 @@ extension AppFlowyTestBase on WidgetTester {
   }
 
   Future<void> tapButtonWithName(
-    String tr, {
-    int milliseconds = 500,
-  }) async {
+      String tr, {
+        int milliseconds = 500,
+      }) async {
     Finder button = find.text(
       tr,
       findRichText: true,
@@ -105,7 +105,7 @@ extension AppFlowyTestBase on WidgetTester {
     );
     if (button.evaluate().isEmpty) {
       button = find.byWidgetPredicate(
-        (widget) => widget is FlowyText && widget.text == tr,
+            (widget) => widget is FlowyText && widget.text == tr,
       );
     }
     await tapButton(
@@ -116,15 +116,38 @@ extension AppFlowyTestBase on WidgetTester {
   }
 
   Future<void> tapButtonWithTooltip(
-    String tr, {
-    int milliseconds = 500,
-  }) async {
+      String tr, {
+        int milliseconds = 500,
+      }) async {
     final button = find.byTooltip(tr);
     await tapButton(
       button,
       milliseconds: milliseconds,
     );
     return;
+  }
+
+  Future<void> doubleTapButton(
+      Finder finder, {
+        int? pointer,
+        int buttons = kPrimaryButton,
+        bool warnIfMissed = true,
+        int milliseconds = 500,
+      }) async {
+    await tapButton(
+      finder,
+      pointer: pointer,
+      buttons: buttons,
+      warnIfMissed: warnIfMissed,
+      milliseconds: kDoubleTapMinTime.inMilliseconds,
+    );
+    await tapButton(
+      finder,
+      pointer: pointer,
+      buttons: buttons,
+      warnIfMissed: warnIfMissed,
+      milliseconds: milliseconds,
+    );
   }
 
   Future<void> wait(int milliseconds) async {
@@ -136,7 +159,7 @@ extension AppFlowyTestBase on WidgetTester {
 extension AppFlowyFinderTestBase on CommonFinders {
   Finder findTextInFlowyText(String text) {
     return find.byWidgetPredicate(
-      (widget) => widget is FlowyText && widget.text == text,
+          (widget) => widget is FlowyText && widget.text == text,
     );
   }
 }
